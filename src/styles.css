@@ -1,0 +1,95 @@
+*:not(.dropdown-main) {
+  margin: 0;
+  padding: 10px;
+}
+
+.maincontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+#cards-container {
+  grid-row: 1;
+  grid-column: 1;
+  height: fit-content;
+  width: 500px;
+  border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.notread {
+  display: none;
+  grid-row: 1;
+  grid-column: 2;
+  width: fit-content;
+  height: fit-content;
+  border: 2px black solid;
+}
+.book-card {
+  height: fit-content;
+  width: fit-content;
+  border: brown 1px dotted;
+  font-family: "Courier New", Courier, monospace;
+  font-size: medium;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.book-card:hover {
+  /* transform: translateX(5px); */
+  border: brown 1.5px solid;
+}
+
+.button-delete {
+  padding: 3px;
+  height: 30px;
+  width: fit-content;
+  color: red;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.counter {
+  display: inline;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+img {
+  /* width: 300px; */
+  height: 250px;
+  object-fit: cover;
+}
+
+.invalid {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+.toggle-read {
+  max-height: 35px;
+  width: 80px;
+  padding: 0px;
+  font-size: small;
+}
+
+svg {
+  display: inline-block;
+  padding: 0px;
+}
+
+#add {
+  margin-left: 20px;
+}
