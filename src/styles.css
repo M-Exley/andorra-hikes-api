@@ -1,95 +1,96 @@
-*:not(.dropdown-main) {
-  margin: 0;
-  padding: 10px;
-}
+* {
+  padding: 0px;
+  margin: 0px;
+  overflow-y: hidden;
+} /* be careful with this reset */
 
-.maincontainer {
+body {
+  background-color: grey;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-#cards-container {
-  grid-row: 1;
-  grid-column: 1;
-  height: fit-content;
-  width: 500px;
+.container {
+  grid-column: 1 / 3;
+  margin: 20px;
+  padding: 20px;
   border: 2px black solid;
-  display: flex;
-  flex-direction: column;
+  height: 80vh;
+  width: 70%;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.sort {
+  padding-left: 10px;
+  grid-column: 4;
+  position: relative;
+  top: 40px;
+}
+
+.hike-cards {
+  grid-column: 1 / 2;
+  margin: 10px 0px;
+  font-size: large;
+  max-width: fit-content;
+  height: 20px;
+  padding: 5px 50px 5px 10px;
+}
+
+.hike-cards:hover {
+  /* this is the left container list */
+  cursor: pointer;
+  /* margin: 2px 0px; */
+  border: 1px rgb(249, 249, 6) solid;
+  transition: border-color 0.5s ease;
+}
+
+.hike-card-container {
+  display: none;
+  grid-column: 3 / 4;
+  margin: 10px;
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  overflow-x: hidden;
   gap: 3px;
 }
 
-.notread {
-  display: none;
-  grid-row: 1;
-  grid-column: 2;
-  width: fit-content;
+.hike-card-div {
+  border: black 3px dotted;
   height: fit-content;
-  border: 2px black solid;
-}
-.book-card {
-  height: fit-content;
-  width: fit-content;
-  border: brown 1px dotted;
-  font-family: "Courier New", Courier, monospace;
-  font-size: medium;
-  color: black;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
+  width: 20vw;
+  padding: 5px;
+  border: 2px dotted black;
 }
 
-.book-card:hover {
-  /* transform: translateX(5px); */
-  border: brown 1.5px solid;
-}
-
-.button-delete {
-  padding: 3px;
-  height: 30px;
-  width: fit-content;
-  color: red;
-  text-align: center;
-  vertical-align: middle;
-  margin: auto;
-}
-
-.counter {
-  display: inline;
-}
-
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-img {
-  /* width: 300px; */
-  height: 250px;
-  object-fit: cover;
-}
-
-.invalid {
-  border: 2px solid red;
-  background-color: #ffe6e6;
-}
-
-.toggle-read {
-  max-height: 35px;
-  width: 80px;
-  padding: 0px;
-  font-size: small;
-}
-
-svg {
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
   display: inline-block;
-  padding: 0px;
 }
 
-#add {
-  margin-left: 20px;
+.button-options {
+  grid-column: 2;
+  height: fit-content;
+  width: fit-content;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.X {
+  padding-left: 50px;
+  font-size: x-large;
+}
+
+.X:hover {
+  cursor: pointer;
 }

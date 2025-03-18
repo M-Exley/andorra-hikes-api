@@ -3,43 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>library-v2-carousel</title>
+    <title>andorra-hikes-dev</title>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
   </head>
   <body>
-    <div class="form">
-      <form action="" id="form">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" required />
-        <label for="author">Author</label>
-        <input type="text" name="author" id="author" novalidate />
-        <label for="pages">Pages</label>
-        <input type="number" name="pages" id="pages" required />
-        <label for="read">Read: Yes</label>
-        <input type="radio" name="read" checked value="Read" />
-
-        <label for="read">Read: No</label>
-        <input type="radio" name="read" value="Not read" />
-        <button type="submit" id="add">ADD</button>
-      </form>
-      <!-- <button type="button" id="clear">CLEAR LIBRARY</button> -->
-      <span>
-        <div class="counter">Books in library:</div>
-        <div class="counter caro">Books in carousel:</div>
-      </span>
+    <div class="container">
+      <div class="button-options">
+        <h4>Arrange by:</h4>
+        <button value="alphabet">A-Z</button>
+        <button value="parish">Parish</button>
+        <button value="difficulty">Dificultat</button>
+        <button value="randomise">Randomise</button>
+      </div>
     </div>
+    <div class="hike-card-container"></div>
 
-    <div class="maincontainer">
-      <div id="cards-container"></div>
-      <div class="notread"></div>
-    </div>
-
-    <!-- carousel -->
-    <div class="carousel">
-      <button id="prev">&lt;</button>
-      <img id="carousel-image" src="./images/sebald.jpg" />
-      <button id="next">&gt;</button>
-    </div>
+    <form action="" class="sort">
+      Sort by:
+      <select
+        name="sort-options"
+        id="sort-options"
+        aria-placeholder="Choose filter"
+      >
+        Sort
+      </select>
+      <button type="submit">Submit</button>
+    </form>
 
     <script src="index.js"></script>
   </body>
