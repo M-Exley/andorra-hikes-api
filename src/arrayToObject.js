@@ -1,4 +1,4 @@
-// this function is for the sort function only
+// this function is for the sortDropdown function only
 
 import { arrayOfAll } from "./getHikes";
 
@@ -8,3 +8,4 @@ export default function arraytoObject() {
   console.log(allKeys);
   return allKeys;
 }
+// function completed - return to later for adding dropdown logic 

@@ -14,3 +14,4 @@ export default function changeDifficultyColour(difficulty) {
       return "gray";
   }
 }
+// function completed

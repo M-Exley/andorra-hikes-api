@@ -13,9 +13,10 @@ export default function stickyButtons() {
   toArray.forEach((button) => {
     button.addEventListener("click", function (e) {
       const res = e.target.value;
+      e.target.style.borderColor = "red"; // works but isn't pretty
       const resultOfStickyClick = [];
       resultOfStickyClick.push(res);
-      //   console.log(resultOfStickyClick);
+      console.log(resultOfStickyClick);
       /* ternary operation below to cycle through sort functions 
             ternary is not sufficient
       */

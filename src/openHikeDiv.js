@@ -1,14 +1,17 @@
 import destructure from "./destructure";
-import capitalise from "./capitalise";
+// import capitalise from "./capitalise"; // not required since I added the colour dot
 import changeDifficultyColour from "./changeDifficultyColour";
 import closeModal from "./closeModal";
 
 export default function openHikeDiv(object) {
   const hikeCardDiv = document.createElement("div");
   hikeCardDiv.classList.add("hike-card-div");
-  const hikeCardContainer = document.querySelector(".hike-card-container");
+  hikeCardDiv.classList.add("fade-in");
+  const hikeCardContainer = document.querySelector(".hike-card-container"); // original
+
   hikeCardContainer.style.display = "block";
   hikeCardContainer.appendChild(hikeCardDiv);
+  hikeCardContainer.style.backgroundColor = "white";
   // could do with destructure function now.....
   // destructure function goes in getHikes(). This one serves only for DOM transfer to column 3 info
   const destructuredObject = destructure(object);
@@ -41,5 +44,4 @@ export default function openHikeDiv(object) {
 
   closeModal();
 }
-
-/* <span class="dot"></span> */
+// aside from visual changes, this module is finished
