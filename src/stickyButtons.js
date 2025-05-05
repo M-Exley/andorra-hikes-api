@@ -13,7 +13,10 @@ export default function stickyButtons() {
   toArray.forEach((button) => {
     button.addEventListener("click", function (e) {
       const res = e.target.value;
-      e.target.style.borderColor = "red"; // works but isn't pretty
+      const resTarget = e.target;
+      resTarget.classList.add("button-active");
+      document.querySelector(".container").scrollTop = 0;
+
       const resultOfStickyClick = [];
       resultOfStickyClick.push(res);
       console.log(resultOfStickyClick);

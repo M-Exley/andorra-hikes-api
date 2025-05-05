@@ -18,6 +18,7 @@ export default function getHikeInfo() {
       // does it work??
       console.log(typeof findResultDestructured, findResultDestructured);
       openHikeDiv(findResultDestructured); // see line above
+      document.querySelector(".map").style.display = "block";
 
       return nameOfHike; // n.b. that it works when clicked but is undefined before
     });
