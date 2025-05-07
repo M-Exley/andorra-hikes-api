@@ -3,14 +3,17 @@
 * {
   padding: 0px;
   margin: 0px;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 } /* be careful with this reset */
 
 body {
   background-color: grey;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(
+    2,
+    1fr
+  ); /* changed from four. Not sure why it was on 4 */
 }
 
 .container {
@@ -22,16 +25,19 @@ body {
   height: 80vh;
   /* width: 60%;
     max-width: 70%; */
-  width: clamp(400px, 450px, 70%);
+  width: clamp(400px, 510px, 82%);
   overflow-y: scroll;
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr auto;
+  text-wrap: nowrap;
 }
 .hike-list-master {
   grid-column: 1 / 2;
   grid-row: 1 / -1;
   overflow-y: visible;
 }
+
 .sort {
   padding-left: 10px;
   grid-column: 4;
@@ -63,7 +69,9 @@ body {
   display: none;
   grid-column: 3 / 4;
   grid-row: 1 / 2;
-  margin: 10px;
+  /* margin: 10px; */
+  margin-top: 1rem;
+
   /* width: clamp(22vw, 40vw, 42vw); */
   width: fit-content;
   height: fit-content;
@@ -77,7 +85,7 @@ body {
   height: fit-content;
   min-width: 35vw;
   padding: 0.5em;
-  border: 2px dotted black;
+  border: 3px inset black;
   font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-style: normal;
@@ -87,10 +95,15 @@ body {
   text-wrap: nowrap;
 }
 
+.hike-card-div-left:hover {
+  box-shadow: 7px 9px 26px -9px rgba(46, 6, 6, 0.75);
+}
+
 .hike-card-div-left {
-  height: 90%;
+  /* height: 90%; */
+  flex-direction: column;
   width: fit-content;
-  border: orange 1px solid;
+  border: outset 3px;
   padding: 1em;
   margin-bottom: 1em;
 }
@@ -105,7 +118,7 @@ body {
   justify-content: space-between;
 }
 
-.map {
+#map {
   display: none;
   height: 280px;
   width: 440px;
@@ -134,6 +147,10 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+}
+
+.button-options button {
+  font-size: 0.9rem;
 }
 
 .X,
@@ -185,11 +202,19 @@ h4 {
 .completed:active,
 .to-do:active {
   -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: green;
+}
+
+.X:hover,
+.favourite:hover,
+.completed:hover,
+.to-do:hover {
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.58);
 }
 
 .X {
   font-size: xx-large;
+  color: crimson;
 }
 
 svg {
@@ -197,6 +222,97 @@ svg {
 }
 
 .loop-icon {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  transform-origin: center;
+  position: relative;
+  top: 5px;
+}
+
+.colour-codes,
+.difficulty-codes {
+  display: none;
+  width: fit-content;
+  text-wrap: nowrap;
+  grid-column: 2;
+  position: sticky;
+  top: 150px;
+  /* display: flex; */
+  flex-direction: column;
+  border: 1px black solid;
+  height: fit-content;
+  gap: 0.5em;
+  padding: 0.2em;
+}
+
+.colour-codes::before,
+.difficulty-codes::before {
+  content: "Key";
+}
+
+.parishes,
+.difficulties {
+  font-family: Roboto, sans-serif;
+  font-size: smaller;
+  border: 1px black solid;
+  padding: 0.2em;
+}
+
+.parishes:hover,
+.difficulties:hover {
+  cursor: pointer;
+}
+
+.difficulties {
+  font-size: medium;
+  border-width: 2px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#Andorra-la-Vella {
+  border-color: deeppink;
+}
+
+#Escaldes-Engordany {
+  border-color: fuchsia;
+}
+
+#Encamp {
+  border-color: maroon;
+}
+
+#Canillo {
+  border-color: orange;
+}
+
+#Ordino {
+  border-color: chartreuse;
+}
+
+#La-Massana {
+  border-color: cyan;
+}
+
+#Sant-Julia {
+  border-color: blue;
+}
+
+.change-border {
+  border: 2px red solid;
+}
+
+#Green {
+  border-color: green;
+}
+
+#Blue {
+  border-color: blue;
+}
+
+#Red {
+  border-color: red;
+}
+
+#Black {
+  border-color: black;
 }

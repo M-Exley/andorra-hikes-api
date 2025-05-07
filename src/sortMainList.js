@@ -1,6 +1,7 @@
 import cycleArray from "./cycleArray";
 import { arrayOfAll } from "./getHikes";
 import openHikeDiv from "./openHikeDiv"; // to open random hike object
+import changeParishBorderColour from "./colourCodeParish";
 
 /* all of the sticky menu buttons live here */
 export const sortMainAlphabetically = function () {
@@ -14,6 +15,14 @@ export const sortMainAlphabetically = function () {
 export const sortMainByParish = function () {
   const sortByParish = arrayOfAll.sort((a, b) => a.area.localeCompare(b.area));
   console.log(`Sorted by parish: `, sortByParish);
+  const zones = () => {
+    arrayOfAll.forEach((hike) => {
+      const zonesResult = hike.area;
+      console.log("1", zonesResult);
+      // changeParishBorderColour();
+    });
+  };
+  zones();
   cycleArray(sortByParish);
 };
 

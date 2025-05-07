@@ -30,7 +30,7 @@ Upon completing the original app, I came across another idea for various English
 - clean HTML design with nice clear transitions and search fields - opted against search fields
 - randomise button - DONE
 
-## Version Two
+# Version Two
 
 ### Improvements
 
@@ -43,12 +43,43 @@ These are the aspects that I'm going to focus on for v2:
 - digital passport which would digitize the currently available one
 - add to favourites
 - removing anything that is not required: Sort by option
-- add borders to activate once the hikes have been sorted by parish and difficulty
+- add color guidance or borders to activate once the hikes have been sorted by parish and difficulty
 - add counter
 - a suggestion was to have a short video of each showing what they are really like
+- ADD HUTS and rating
 
 ### Screenshots
 
 1. Showing the original project that was made in around a week. I was very happy with the result despite its basic appearance. The addition of the Leaflet API should fit nicely into the available space.
 
 ![screenshot-one](src/images/screenshot-one.png)
+
+2. After a couple of hours work there is a change in design and I've added user options to the right of the hike information card: favourite, completed and to-do. I'm going to have these as fully functional and save the events in a menu area or pop-up window.
+
+![screenshot-two](src/images/screenshot-two.png)
+
+3. This was the first task that I got stuck on. I was trying to figure out how to organise the hikes into various colour-coded groups AFTER clicking the 'Parish' sort option. As outlined above, I wasn't sure whether to have them individually coloured or in large blocks, by parish:
+
+![screenshot-three](src/images/screenshot-three.png)
+
+4. I got stuck for a couple of hours trying to figure out how Leaflet works as I have not utilised it since using it as part of a course last year. I went straight ahead and put it into its own module but it was not displaying after troubleshooting everything including Webpack configuration to the import CSS line of code. What I have to do next is connect the individual hike info to the Leaflet coordinates:
+
+![screenshot-four](src/images/screenshot-four.png)
+
+### Difficulties
+
+1. The first main issue I had with version two was the dragging element of Leaflet becoming inactive after clicking on a second hike from the list. From what I read online, this is a common issue with Leaflet as the Map element must be empty when another event is fired to re-initialise the map - which is exactly what I was trying to do.
+
+- _RESOLVED_ using:
+
+```
+ document.querySelector(".hike-card-container").innerHTML = "";
+
+      if (map) {
+        map.remove();
+      }
+```
+
+Although the solution is simple, it took many different orders, modules and variations to get it correct owing to Leaflet being quite fussy.
+
+2. The next one wasn't so much problematic as long-winded as I had to find the coordinates for 50+ hikes. I used ChatGPT to see if it could handle the request but it repeatedly returned ten or so hikes with questionable coordinates. It has to be done manually for peace of mind.

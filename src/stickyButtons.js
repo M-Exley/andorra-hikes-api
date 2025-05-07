@@ -25,12 +25,20 @@ export default function stickyButtons() {
       */
       if (String(resultOfStickyClick) === "alphabet") {
         sortMainAlphabetically();
+        document.querySelector(".colour-codes").style.display = "none";
+        document.querySelector(".difficulty-codes").style.display = "none";
       } else if (String(resultOfStickyClick) === "parish") {
         sortMainByParish();
+        document.querySelector(".difficulty-codes").style.display = "none";
+        document.querySelector(".colour-codes").style.display = "flex";
       } else if (String(resultOfStickyClick) === "difficulty") {
         sortMainByDifficulty();
+        document.querySelector(".colour-codes").style.display = "none";
+        document.querySelector(".difficulty-codes").style.display = "flex";
       } else if (String(resultOfStickyClick) === "randomise") {
         sortMainByRandom();
+        document.querySelector(".colour-codes").style.display = "none";
+        document.querySelector(".difficulty-codes").style.display = "none";
       }
     });
   });

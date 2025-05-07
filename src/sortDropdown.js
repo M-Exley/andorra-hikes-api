@@ -21,3 +21,4 @@ export default function sortDropdown() {
   );
   getSortedOption();
 }
+// not being used in v2

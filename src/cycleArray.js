@@ -6,6 +6,7 @@ export default async function cycleArray(array) {
   for (const hike of array) {
     container.innerHTML += `<div class="hike-cards">${hike.trail}</div>`;
   }
+
   getHikeInfo(); // works
 }
-// this function is finished
+// this function is finished and I don't want to add the colourCodeParish to it

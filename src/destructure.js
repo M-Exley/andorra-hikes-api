@@ -10,6 +10,9 @@ export default function destructure(object) {
     distance,
     lake,
     toponymy,
+    // marker,
+    lat,
+    long,
   } = object;
 
   return {
@@ -23,5 +26,8 @@ export default function destructure(object) {
     distance,
     lake,
     toponymy,
+    // marker,
+    lat,
+    long,
   };
 }

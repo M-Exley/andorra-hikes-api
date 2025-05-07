@@ -12,3 +12,5 @@ export default function getSortedOption() {
     // Sort by colour in the list
   });
 }
+
+// no longer using this
