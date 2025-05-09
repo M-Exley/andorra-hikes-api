@@ -10,8 +10,8 @@
     "distance": 4060,
     "lake": false,
     "toponymy": "Branch",
-    "lat": 42.454,
-    "long": 1.491
+    "lat": 42.474972,
+    "long": 1.505583
   },
   {
     "trail": "Canolich Route",
@@ -24,8 +24,8 @@
     "distance": 3700,
     "lake": false,
     "toponymy": "Land of Settlers",
-    "lat": 42.454,
-    "long": 1.491
+    "lat": 42.47539239252785,
+    "long": 1.4821665587435573
   },
   {
     "trail": "La Gallina Pass",
@@ -38,8 +38,8 @@
     "distance": 6900,
     "lake": false,
     "toponymy": "Spring",
-    "lat": 42.453,
-    "long": 1.487
+    "lat": 42.453907106684824,
+    "long": 1.4630968552075234
   },
   {
     "trail": "La Senyoreta",
@@ -52,8 +52,8 @@
     "distance": 1880,
     "lake": false,
     "toponymy": "Person of Authority",
-    "lat": 42.4511,
-    "long": 1.4864
+    "lat": 42.45155447998539,
+    "long": 1.486514952651843
   },
   {
     "trail": "Juberri",
@@ -66,8 +66,8 @@
     "distance": 5470,
     "lake": false,
     "toponymy": "Yoke Town",
-    "lat": 42.45,
-    "long": 1.486
+    "lat": 42.43805814618851,
+    "long": 1.490126844463382
   },
   {
     "trail": "Tomb Lauredia Short",
@@ -80,8 +80,8 @@
     "distance": 8200,
     "lake": false,
     "toponymy": "Pot of Water",
-    "lat": 42.4652,
-    "long": 1.4911
+    "lat": 42.46516666666667,
+    "long": 1.4910999999999999
   },
   {
     "trail": "Francoli",
@@ -94,8 +94,8 @@
     "distance": 3300,
     "lake": false,
     "toponymy": "Black Pheasant",
-    "lat": 42.453,
-    "long": 1.487
+    "lat": 42.491049999999994,
+    "long": 1.4467499999999998
   },
   {
     "trail": "Tomb Lauredia Long",
@@ -108,8 +108,8 @@
     "distance": 16000,
     "lake": false,
     "toponymy": "Pot of Water",
-    "lat": 42.4652,
-    "long": 1.4911
+    "lat": 42.464816666666664,
+    "long": 1.490983333333333
   },
   {
     "trail": "Anyos - l'Aldosa",
@@ -122,8 +122,8 @@
     "distance": 7480,
     "lake": false,
     "toponymy": "Pasture",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.54018333333333,
+    "long": 1.52405
   },
   {
     "trail": "Llorts - Sedornet",
@@ -136,8 +136,8 @@
     "distance": 4600,
     "lake": false,
     "toponymy": "Avalanche of Stones (tartera)",
-    "lat": 42.5961,
-    "long": 1.5261
+    "lat": 42.59614581099014,
+    "long": 1.5263177394558056
   },
   {
     "trail": "Cabana Sorda",
@@ -192,8 +192,8 @@
     "distance": 4690,
     "lake": true,
     "toponymy": "Uninterrupted Chain of Mountains",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.61214999999999,
+    "long": 1.6378
   },
   {
     "trail": "Casamanya",
@@ -234,8 +234,8 @@
     "distance": 11800,
     "lake": true,
     "toponymy": "Irrigation Channel",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.5603441992071,
+    "long": 1.5938043032234388
   },
   {
     "trail": "Salamandres",
@@ -248,8 +248,8 @@
     "distance": 3000,
     "lake": true,
     "toponymy": "Salamander",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.61214999999999,
+    "long": 1.6378
   },
   {
     "trail": "Canillo Circular",
@@ -262,8 +262,8 @@
     "distance": 32700,
     "lake": false,
     "toponymy": "Spring Waters",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.5603441992071,
+    "long": 1.5938043032234388
   },
   {
     "trail": "La Maiana",
@@ -290,8 +290,8 @@
     "distance": 7700,
     "lake": false,
     "toponymy": "Shade",
-    "lat": 42.4991944,
-    "long": 1.550948340722509
+    "lat": 42.509017139843806,
+    "long": 1.5425429898718612
   },
   {
     "trail": "Madriu",
@@ -346,8 +346,8 @@
     "distance": 21000,
     "lake": true,
     "toponymy": "Blue Lake",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.51750104742443,
+    "long": 1.570918756740545
   },
   {
     "trail": "Portella Blanca",
@@ -360,8 +360,8 @@
     "distance": 6940,
     "lake": true,
     "toponymy": "Easy Passage",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.532734866940984,
+    "long": 1.7007197720432121
   },
   {
     "trail": "Les Pardines - l'Illa",
@@ -374,8 +374,8 @@
     "distance": 18360,
     "lake": true,
     "toponymy": "Building Ruins",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.53021666666666,
+    "long": 1.5989833333333334
   },
   {
     "trail": "El Cubil Petit",
@@ -388,8 +388,8 @@
     "distance": 4500,
     "lake": true,
     "toponymy": "Hole, Bed or Depression",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.53183333333333,
+    "long": 1.6975333333333333
   },
   {
     "trail": "Montmalus",
@@ -416,8 +416,8 @@
     "distance": 6150,
     "lake": false,
     "toponymy": "An Elevation on Isolated Land",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.538959751070074,
+    "long": 1.5858118712756415
   },
   {
     "trail": "Els Agols",
@@ -430,8 +430,8 @@
     "distance": 5370,
     "lake": false,
     "toponymy": "Swamp",
-    "lat": 42.53176755637855,
-    "long": 1.5793924354873232
+    "lat": 42.53021666666666,
+    "long": 1.5989833333333334
   },
   {
     "trail": "Alt del Griu",
@@ -458,8 +458,8 @@
     "distance": 808,
     "lake": true,
     "toponymy": "The Little Bees",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.53714691061157,
+    "long": 1.7334137235128138
   },
   {
     "trail": "Els Pessons",
@@ -472,8 +472,8 @@
     "distance": 5950,
     "lake": true,
     "toponymy": "Straw and Rocky Terrain",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.530791515232046,
+    "long": 1.6987076553273228
   },
   {
     "trail": "Prat Primer",
@@ -500,8 +500,8 @@
     "distance": 25400,
     "lake": false,
     "toponymy": "Used for Two or More Peaks",
-    "lat": 42.29201,
-    "long": 1.29465
+    "lat": 42.48446348286229,
+    "long": 1.4909026224362858
   },
 
   {
@@ -543,8 +543,8 @@
     "distance": 5130,
     "lake": false,
     "toponymy": "Sunny Side",
-    "lat": 42.542,
-    "long": 1.517
+    "lat": 42.51331644658808,
+    "long": 1.5296075519374204
   },
   {
     "trail": "Prat Primer via Palomera",
@@ -571,8 +571,8 @@
     "distance": 4460,
     "lake": false,
     "toponymy": "Thorn Patch",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.55181801364757,
+    "long": 1.4543786088245834
   },
   {
     "trail": "Roc de la Cauba",
@@ -613,8 +613,8 @@
     "distance": 9120,
     "lake": false,
     "toponymy": "Fountain Spout",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.57266195305083,
+    "long": 1.4843626703007229
   },
   {
     "trail": "Comapedrosa",
@@ -627,8 +627,8 @@
     "distance": 15400,
     "lake": true,
     "toponymy": "Stone Valley",
-    "lat": 42.579814672722556,
-    "long": 1.4786320974965181
+    "lat": 42.57978180638157,
+    "long": 1.4760612354365572
   },
   {
     "trail": "Sispony - Enclar",
@@ -641,8 +641,8 @@
     "distance": 7390,
     "lake": false,
     "toponymy": "That Which Lets Itself Be Seen Well",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.53230123068473,
+    "long": 1.5142965661794279
   },
   {
     "trail": "Pal - Cardemeller",
@@ -655,8 +655,8 @@
     "distance": 1910,
     "lake": false,
     "toponymy": "Stick",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.545441477860805,
+    "long": 1.4747051791939354
   },
   {
     "trail": "Coll de Les Cases",
@@ -669,8 +669,8 @@
     "distance": 2930,
     "lake": false,
     "toponymy": "Mountain Hill of Small Elevation",
-    "lat": 42.56173707039457,
-    "long": 1.500435245891378
+    "lat": 42.57071269332302,
+    "long": 1.4925074488477894
   },
   {
     "trail": "Verdaguer",
@@ -683,11 +683,11 @@
     "distance": 15200,
     "lake": true,
     "toponymy": "Named After Writer Jacint Verdaguer",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.63173903933697,
+    "long": 1.4822694012486495
   },
   {
-    "trail": "Rialb - La Rabassa",
+    "trail": "Besali to Rialb",
     "number": 26,
     "difficulty": "red",
     "area": "Ordino",
@@ -697,8 +697,8 @@
     "distance": 11350,
     "lake": false,
     "toponymy": "Rounded Hill",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.62626935791352,
+    "long": 1.5515302859269529
   },
   {
     "trail": "Tristaina",
@@ -725,8 +725,8 @@
     "distance": 2670,
     "lake": true,
     "toponymy": "Ravine",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.63290521997058,
+    "long": 1.4899583257186297
   },
   {
     "trail": "l'Angonella",
@@ -753,8 +753,8 @@
     "distance": 11720,
     "lake": true,
     "toponymy": "Big Lake",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.62626935791352,
+    "long": 1.5515302859269529
   },
   {
     "trail": "Entremesaigues",
@@ -781,8 +781,8 @@
     "distance": 4900,
     "lake": false,
     "toponymy": "Hill Amidst Mountains",
-    "lat": 42.504069430541186,
-    "long": 1.551955429911145
+    "lat": 42.51750104742443,
+    "long": 1.570918756740545
   },
   {
     "trail": "Enclar Valley",
@@ -795,8 +795,8 @@
     "distance": 1700,
     "lake": false,
     "toponymy": "That Which Lets Itself Be Seen Well",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.49619987398456,
+    "long": 1.4966749807920037
   },
   {
     "trail": "Engolasters",
@@ -809,8 +809,8 @@
     "distance": 1900,
     "lake": true,
     "toponymy": "Irrigation Channel",
-    "lat": 42.51766948094462,
-    "long": 1.5664967832704069
+    "lat": 42.53139376377325,
+    "long": 1.575391823397039
   },
   {
     "trail": "Campea Springs",
@@ -823,8 +823,8 @@
     "distance": 5200,
     "lake": false,
     "toponymy": "A Person from Encamp",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.539056675032946,
+    "long": 1.6306350613597558
   },
   {
     "trail": "Rocafort",
@@ -837,8 +837,8 @@
     "distance": 3800,
     "lake": false,
     "toponymy": "Resistant",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.45664717810226,
+    "long": 1.4798154186940453
   },
   {
     "trail": "Turer, Ordino",
@@ -851,8 +851,8 @@
     "distance": 2900,
     "lake": false,
     "toponymy": "Under Grey Rock",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.55676954452401,
+    "long": 1.5326778430049408
   },
   {
     "trail": "Pla de Sorteny",
@@ -865,12 +865,12 @@
     "distance": 4900,
     "lake": false,
     "toponymy": "Valley of the Witches",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.62626935791352,
+    "long": 1.5515302859269529
   },
   {
     "trail": "La Rabassa d'Ordino",
-    "number": 28,
+    "number": 27,
     "difficulty": "green",
     "area": "Ordino",
     "duration": 120,
@@ -879,8 +879,8 @@
     "distance": 4900,
     "lake": true,
     "toponymy": "Rounded Hill",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.62626935791352,
+    "long": 1.5515302859269529
   },
   {
     "trail": "Les Pardines",
@@ -893,8 +893,8 @@
     "distance": 3400,
     "lake": true,
     "toponymy": "Building Ruins",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.53021666666666,
+    "long": 1.5989833333333334
   },
   {
     "trail": "Gall Path",
@@ -907,8 +907,8 @@
     "distance": 5800,
     "lake": false,
     "toponymy": "Forest Bird",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.565577150436916,
+    "long": 1.6025147827324748
   },
   {
     "trail": "Toll Bullidor",
@@ -921,7 +921,7 @@
     "distance": 860,
     "lake": false,
     "toponymy": "Tumultuous Waters",
-    "lat": 42.4991944,
-    "long": 1.5306667
+    "lat": 42.5539333,
+    "long": 1.5882333
   }
 ]
