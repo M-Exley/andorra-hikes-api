@@ -38,15 +38,18 @@ I would really like to host the data somewhere as if it were a real API. By far 
 
 These are the aspects that I'm going to focus on for v2:
 
-- add map using Leaflet(possibly with current location request)
+- removing anything that is not required: Sort by option - DONE
+- add map using Leaflet - DONE
+- (possibly with current location request)
+- add color guidance or borders to activate once the hikes have been sorted by parish and difficulty - DONE
+- add animation to the 'key' - clickme bounce
+- add counter
 - add functionality to check-in to refuge - not sure about this one
 - digital passport which would digitize the currently available one
 - add to favourites
-- removing anything that is not required: Sort by option
-- add color guidance or borders to activate once the hikes have been sorted by parish and difficulty
-- add counter
 - a suggestion was to have a short video of each showing what they are really like
 - ADD HUTS and rating
+- Route maps?? hard work
 
 ### Screenshots
 
@@ -66,6 +69,10 @@ These are the aspects that I'm going to focus on for v2:
 
 ![screenshot-four](src/images/screenshot-four.png)
 
+5. This screenshot shows the same issue as outlined in Screenshot Three with some progress made. See Difficulties Three below:
+
+![screenshot-five](src/images/screenshot-five.png)
+
 ### Difficulties
 
 1. The first main issue I had with version two was the dragging element of Leaflet becoming inactive after clicking on a second hike from the list. From what I read online, this is a common issue with Leaflet as the Map element must be empty when another event is fired to re-initialise the map - which is exactly what I was trying to do.
@@ -82,4 +89,30 @@ These are the aspects that I'm going to focus on for v2:
 
 Although the solution is simple, it took many different orders, modules and variations to get it correct owing to Leaflet being quite fussy.
 
-2. The next one wasn't so much problematic as long-winded as I had to find the coordinates for 50+ hikes. I used ChatGPT to see if it could handle the request but it repeatedly returned ten or so hikes with questionable coordinates. It has to be done manually for peace of mind.
+2. The next one wasn't so much problematic as long-winded as I had to find the coordinates for 50+ hikes. I used ChatGPT to see if it could handle the request but it repeatedly returned ten or so hikes with questionable coordinates. It has to be done manually for peace of mind >> it's taken around one day to correct.
+
+3. This task relates to Screenshots Three and Five. The borders were responding to the logic - changing their colour to the key on the right based on Difficulty - but the `switch` statement was only picking up the final result, as seen in the console. It is something to do with the final condition in the switch statement and the final result in the console so I will continue working on it until it's sorted.
+
+- _RESOLVED_ by adding a class dynamically on creation - a new move for me
+
+4. I had to dedicate a fair amount of time in trying to figure out a way to get the filtered parish options first to display in the hike list master container and then to get the colours to apply using the existing IDs. The main issue is the format: #Andorra-la-Vella - capitalised and hyphenated:
+
+![difficulty-one](src/images/difficulty-one.png)
+
+- _RESOLVED_ by grafting the `target` variable onto the `replace()` method:
+
+```
+toArrayHikes.forEach((hike) => {
+        if (hike.dataset.set === target) {
+          console.log(hike);
+          newArray = arrayOfAll.filter((hikeObj) => hikeObj.area === target);
+          console.log(newArray);
+        }
+        hikeListMaster.innerHTML = "";
+        const hyphenatedTarget = target.replace(/\s+/g, "-");
+
+        for (const hike of newArray) {
+          hikeListMaster.innerHTML += `<div class="hike-cards" data-set="${hike.area}" id="${hyphenatedTarget}">${hike.trail}</div>`;
+        }
+})
+```

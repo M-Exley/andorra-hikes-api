@@ -22,7 +22,7 @@ export default function getHikeInfo() {
 
       document.getElementById("map").style.display = "block";
 
-      console.log(map?.dragging.enabled());
+      map?.dragging.enabled();
 
       setTimeout(() => {
         map.invalidateSize();

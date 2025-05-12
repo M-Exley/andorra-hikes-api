@@ -1,3 +1,5 @@
+import { map } from "./loadLeaflet";
+
 export function closeModal() {
   const spanElement = document.querySelector(".X");
   spanElement.addEventListener("click", function () {
@@ -6,7 +8,7 @@ export function closeModal() {
     hikeCardDiv.style.display = "none";
     document.querySelector(".hike-card-container").style.backgroundColor =
       "gray";
-    document.querySelector(".map").style.display = "none";
+    document.getElementById("map").style.display = "none"; // doesn't work anymore
   });
 }
 // function completed
