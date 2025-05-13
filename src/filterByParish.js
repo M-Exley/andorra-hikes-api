@@ -1,3 +1,4 @@
+import count from "./counter";
 import getHikeInfo from "./getHikeInfo";
 
 export default function filterByParish(arrayOfAll) {
@@ -26,6 +27,7 @@ export default function filterByParish(arrayOfAll) {
         for (const hike of newArray) {
           hikeListMaster.innerHTML += `<div class="hike-cards" data-set="${hike.area}" id="${hyphenatedTarget}">${hike.trail}</div>`;
         }
+        count();
 
         const currentBorderColor = window.getComputedStyle(parish).borderColor;
         parish.style.backgroundColor = currentBorderColor;

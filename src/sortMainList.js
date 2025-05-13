@@ -13,7 +13,6 @@ export const sortMainAlphabetically = function () {
   );
   console.log(`Sorted alphabetically: `, sortAlphabetically);
   cycleArray(sortAlphabetically);
-  // document.querySelectorAll(".hike-cards").classList.toggle("hike-cards-active");
 };
 
 export const sortMainByParish = function () {

@@ -1,4 +1,5 @@
 // this function should only display the hikes in the container and export as array, nothing more
+import count from "./counter";
 import getHikeInfo from "./getHikeInfo";
 import hikes from "./hikes.json";
 import stickyButtons from "./stickyButtons";
@@ -12,6 +13,7 @@ async function cycleArrayTest() {
     arrayOfAll.push(hike);
     container.innerHTML += `<div class="hike-cards" data-set="${hike.area}">${hike.trail}</div>`;
   }
+  count();
 }
 
 export default async function getHikes() {

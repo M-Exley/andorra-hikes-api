@@ -42,11 +42,11 @@ These are the aspects that I'm going to focus on for v2:
 - add map using Leaflet - DONE
 - (possibly with current location request)
 - add color guidance or borders to activate once the hikes have been sorted by parish and difficulty - DONE
-- add animation to the 'key' - clickme bounce
+- add animation to the 'key' - clickme bounce - DONE with parish and difficulty options
 - add counter
 - add functionality to check-in to refuge - not sure about this one
 - digital passport which would digitize the currently available one
-- add to favourites
+- add to favourites - DONE.. functionality?
 - a suggestion was to have a short video of each showing what they are really like
 - ADD HUTS and rating
 - Route maps?? hard work

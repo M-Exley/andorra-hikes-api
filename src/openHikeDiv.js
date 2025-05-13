@@ -73,7 +73,7 @@ export default function openHikeDiv(object) {
   map.dragging.enabled();
 
   closeModal();
-  addToFavourites();
+  addToFavourites(difficulty);
   markAsComplete();
   markAsToDo();
 }

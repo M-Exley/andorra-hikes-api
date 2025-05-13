@@ -11,11 +11,12 @@
 body {
   background-color: grey;
   display: grid;
-  grid-template-columns: repeat(minmax(50%, 1fr));
+  grid-template-columns: 1fr 1fr 2fr 1fr;
   grid-template-rows: repeat(
     2,
     1fr
   ); /* changed from four. Not sure why it was on 4 */
+  gap: 2em;
 }
 
 .container {
@@ -24,7 +25,7 @@ body {
   margin: 20px;
   padding: 20px 20px 40px 20px;
   border: 2px black solid;
-  height: 80vh;
+  height: clamp(300px, 80vh, 800px);
   /* width: 60%;
     max-width: 70%; */
   width: clamp(400px, 560px, 90%);
@@ -48,12 +49,6 @@ body {
 .hike-list-master-filter {
   border-width: 2px;
   border-style: solid;
-}
-.sort {
-  padding-left: 10px;
-  grid-column: 4;
-  position: relative;
-  top: 40px;
 }
 
 .hike-cards {
@@ -97,7 +92,6 @@ body {
   grid-row: 1 / 2;
   margin-top: 1rem;
 
-  /* width: clamp(22vw, 40vw, 42vw); */
   width: fit-content;
   height: fit-content;
   background-color: white;
@@ -107,7 +101,7 @@ body {
 .hike-card-div {
   border: black 3px dotted;
   height: fit-content;
-  min-width: 35vw;
+  min-width: fit-content;
   padding: 0.5em;
   border: 3px inset black;
   font-family: "IBM Plex Mono", monospace;
@@ -146,11 +140,16 @@ body {
   display: none;
   height: 280px;
   width: 440px;
-  grid-column: 3 / 5;
+  grid-column: 3 / 4;
   grid-row: 2 / 4;
   border: black 2px solid;
   margin-top: 1em;
   transition: ease-out 0.5s;
+}
+
+#map:hover {
+  transform: scale(1.75);
+  transform-origin: left;
 }
 
 .dot {
@@ -179,19 +178,26 @@ body {
   font-size: 0.9rem;
 }
 
+.button-options button:hover {
+  transform: scale(1.2);
+}
+
 .X,
 .favourite,
 .completed,
 .to-do {
   font-size: x-large;
   font-weight: bold;
+  transition: transform 0.3s ease;
 }
 
 .X:hover,
-.favourite:hover,
 .completed:hover,
-.to-do:hover {
+.to-do:hover,
+.favourite:hover {
   cursor: pointer;
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 h4 {
@@ -367,4 +373,37 @@ svg {
     transform: translateX(0px);
     color: black;
   }
+}
+
+.options-master {
+  grid-column: 4 /5;
+  grid-row: 1 / -1;
+  background-color: aliceblue;
+  margin: 2rem;
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  overflow-y: auto;
+  max-height: 40%;
+}
+
+.new-favourite {
+  height: clamp(10px, 20px, 30px);
+  padding: 1em;
+  border-width: 2px;
+  border-color: blue;
+  border-style: solid;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  box-shadow:
+    rgba(201, 196, 35, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.new-favourite:hover {
+  transform: scale(1.03);
+  cursor: pointer;
 }

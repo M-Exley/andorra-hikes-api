@@ -1,5 +1,6 @@
 import { capitalise } from "./capitalise";
 import getHikeInfo from "./getHikeInfo";
+import count from "./counter";
 
 // this function is very similar to filterByParish.... but not equal
 
@@ -20,6 +21,8 @@ export default function filterByDifficulty(arrayOfAll) {
       for (const hike of newArray) {
         hikeListMaster.innerHTML += `<div class="hike-cards new-colour" data-set="${hike.area}" id="${capitalise(target)}">${hike.trail}</div>`;
       }
+      count();
+
       getHikeInfo();
     }),
   );
