@@ -1,7 +1,5 @@
 import destructure from "./destructure";
 import loadLeaflet, { map } from "./loadLeaflet";
-
-// import capitalise from "./capitalise"; // not required since I added the colour dot
 import changeDifficultyColour from "./changeDifficultyColour";
 import {
   addToFavourites,
@@ -27,11 +25,9 @@ export default function openHikeDiv(object) {
   hikeCardContainer.style.display = "block";
   hikeCardContainer.appendChild(hikeCardDiv);
   hikeCardContainer.style.backgroundColor = "white";
-  // could do with destructure function now.....
-  // destructure function goes in getHikes(). This one serves only for DOM transfer to column 3 info
   const destructuredObject = destructure(object);
+
   console.log(destructuredObject);
-  /* try to destructure here and then move into module */
   const {
     trail,
     difficulty,

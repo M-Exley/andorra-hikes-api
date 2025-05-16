@@ -1,3 +1,4 @@
+import count from "./counter";
 import {
   sortMainAlphabetically,
   sortMainByParish,
@@ -5,7 +6,7 @@ import {
   sortMainByRandom,
 } from "./sortMainList";
 
-/* this function will control the sticky buttons in the hike list by using sortMainList*/
+/* this function will control the filter buttons in the hike list by using sortMainList*/
 
 export default function stickyButtons() {
   const buttons = document.querySelectorAll(".button-options button");
@@ -25,18 +26,23 @@ export default function stickyButtons() {
       */
       if (String(resultOfStickyClick) === "alphabet") {
         sortMainAlphabetically();
+        count();
+
         document.querySelector(".colour-codes").style.display = "none";
         document.querySelector(".difficulty-codes").style.display = "none";
       } else if (String(resultOfStickyClick) === "parish") {
         sortMainByParish();
+        count();
         document.querySelector(".difficulty-codes").style.display = "none";
         document.querySelector(".colour-codes").style.display = "flex";
       } else if (String(resultOfStickyClick) === "difficulty") {
         sortMainByDifficulty();
+        count();
         document.querySelector(".colour-codes").style.display = "none";
         document.querySelector(".difficulty-codes").style.display = "flex";
       } else if (String(resultOfStickyClick) === "randomise") {
         sortMainByRandom();
+        count();
         document.querySelector(".colour-codes").style.display = "none";
         document.querySelector(".difficulty-codes").style.display = "none";
       }

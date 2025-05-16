@@ -1,49 +1,91 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-/* @import "./animate.css"; */
+@container (min-width: 800px) {
+  .hike-list-master {
+    display: none;
+  }
+}
 
-* {
-  padding: 0px;
-  margin: 0px;
-  /* overflow-y: hidden; */
-} /* be careful with this reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
 body {
-  background-color: grey;
+  background: #2a7b9b;
+  /* background: linear-gradient(
+    124deg,
+    rgba(42, 123, 155, 0.76) 0%,
+    rgba(71, 87, 79, 1) 0%,
+    rgba(232, 215, 65, 0.89) 100%
+  ); */
+  /* background: #2a7b9b; */
+  background: linear-gradient(
+    274deg,
+    rgba(42, 123, 155, 0.76) 0%,
+    rgba(140, 173, 156, 0.52) 0%,
+    rgba(97, 89, 27, 0.57) 100%
+  );
+  height: 100dvh;
+  /* width: 100%;  this seemed to help with the blue bit at the edge*/
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  grid-template-rows: repeat(
-    2,
-    1fr
-  ); /* changed from four. Not sure why it was on 4 */
-  gap: 2em;
+  grid-template-columns: auto auto 20%;
+  /* grid-template-columns: auto-fit, minmax(30%, 1fr); */
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 2rem;
+  /* overflow-x: scroll; */
 }
 
 .container {
-  grid-column: 1 / 3;
-  grid-row: 1 / 4;
-  margin: 20px;
-  padding: 20px 20px 40px 20px;
+  container-type: inline-size;
+  background-color: rgb(144, 124, 124);
+  grid-column: 1;
+  grid-row: 1 / -1;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  padding: 2rem 3rem 4rem 0.2rem;
   border: 2px black solid;
-  height: clamp(300px, 80vh, 800px);
-  /* width: 60%;
-    max-width: 70%; */
-  width: clamp(400px, 560px, 90%);
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: 380px 160px;
-  grid-template-rows: 1fr 1fr auto;
-  text-wrap: nowrap;
-  gap: 0.5rem;
+  height: clamp(70dvh, 80%, 90dvh);
+  /* width: clamp(650px, 750px, 800px); */
+  width: clamp(40.625rem, 46.875rem, 50rem);
   overflow-x: hidden;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto; */
+  display: flex;
+  flex-direction: row;
+  text-wrap: nowrap;
+  /* gap: 1.5rem; */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.container-sub {
+  container-type: inline-size;
+  /* flex: 1; */
+  display: grid;
+  grid-template-columns: clamp(190px, 200px, 300px);
+  grid-template-rows: 2;
+  max-width: 300px;
+  gap: 1rem;
+  /* width: clamp(20%, 50%, 40%); */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* gap: 10%; */
+  /* align-items: flex-start; */
 }
 .hike-list-master {
-  grid-column: 1 / 2;
-  grid-row: 1 / -1;
-  width: fit-content;
+  flex: 2;
+  padding-bottom: 5rem;
+  min-width: fit-content;
   overflow-y: visible;
   padding-left: 1rem;
-  height: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .hike-list-master-filter {
@@ -52,12 +94,13 @@ body {
 }
 
 .hike-cards {
+  padding: 0 1rem 0 0.3rem;
+  flex-basis: 0;
   grid-column: 1 / 2;
-  margin: 10px 0px;
-  font-size: medium;
-  width: fit-content;
-  height: 20px;
-  padding: 5px 15px 5px 10px;
+  margin: 1rem 0px;
+  font-size: 2.5vh;
+  max-width: fit-content;
+  height: clamp(2.2rem, 2.7rem, 2.7rem);
   font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-style: normal;
@@ -73,9 +116,7 @@ body {
 }
 
 .hike-cards:hover {
-  /* this is the left container list */
   cursor: pointer;
-  /* margin: 2px 0px; */
   border: 1.5px black solid;
   color: white;
   transition: border 1s ease;
@@ -88,11 +129,12 @@ body {
 
 .hike-card-container {
   display: none;
-  grid-column: 3 / 4;
+  grid-column: 2;
   grid-row: 1 / 2;
   margin-top: 1rem;
-
   width: fit-content;
+  /* width: clamp(200px, 500px, 700px); */
+
   height: fit-content;
   background-color: white;
   gap: 3px;
@@ -118,7 +160,6 @@ body {
 }
 
 .hike-card-div-left {
-  /* height: 90%; */
   flex-direction: column;
   width: fit-content;
   border: outset 3px;
@@ -126,7 +167,6 @@ body {
   margin-bottom: 1em;
 }
 .hike-card-div-right {
-  /* background-color: darkgrey; */
   height: fit-content;
   width: fit-content;
   padding: 1em;
@@ -138,18 +178,19 @@ body {
 
 #map {
   display: none;
-  height: 280px;
-  width: 440px;
-  grid-column: 3 / 4;
-  grid-row: 2 / 4;
+  height: clamp(220px, 45vh, 400px);
+  width: clamp(340px, 40vw, 600px);
+  grid-column: 2;
+  grid-row: 2 / -1;
   border: black 2px solid;
-  margin-top: 1em;
+  /* margin-top: em; */
   transition: ease-out 0.5s;
 }
 
 #map:hover {
-  transform: scale(1.75);
+  transform: scale(1.3);
   transform-origin: left;
+  transition: ease-in 0.4s;
 }
 
 .dot {
@@ -158,24 +199,25 @@ body {
   height: 16px;
   width: 100px;
   background-color: red;
-  /* border-radius: 50%; */
   display: inline-block;
 }
 
 .button-options {
-  grid-column: 2;
+  /* grid-column: 2; */
   height: fit-content;
   width: fit-content;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 5%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 0.2rem;
+  z-index: 10;
+  font-size: 1.2rem;
 }
 
 .button-options button {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 .button-options button:hover {
@@ -261,18 +303,20 @@ svg {
 
 .colour-codes,
 .difficulty-codes {
+  font-size: 1.3rem;
   display: none;
-  width: fit-content;
   text-wrap: nowrap;
-  grid-column: 2;
-  position: sticky;
-  top: 150px;
-  /* display: flex; */
+  position: fixed;
+  top: 19rem;
   flex-direction: column;
+  flex-shrink: 2;
   border: 1px black solid;
-  height: fit-content;
+  min-height: 350px;
+  /* height: clamp(200px, 25rem, 400px); */
   gap: 0.5em;
   padding: 0.2em;
+  /* overflow-y: hidden; */
+  /* max-width: 30%; */
 }
 
 .colour-codes::before,
@@ -283,7 +327,7 @@ svg {
 .parishes,
 .difficulties {
   font-family: Roboto, sans-serif;
-  font-size: smaller;
+  font-size: 1.4rem;
   border: 2px black solid;
   padding: 0.2em;
 }
@@ -299,7 +343,7 @@ svg {
 }
 
 .difficulties {
-  font-size: medium;
+  font-size: 1.5rem;
   border-width: 2px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -376,23 +420,41 @@ svg {
 }
 
 .options-master {
-  grid-column: 4 /5;
-  grid-row: 1 / -1;
-  background-color: aliceblue;
-  margin: 2rem;
+  max-width: 75%;
+  /* width: (200px, 70%, 70%); */
+  grid-column: 3;
+  grid-row: 1;
+  border: 2px solid black;
+  margin-right: 2vw;
+  margin-top: 1vw;
+  overflow-x: hidden;
   display: none;
-  /* display: flex; */
-  flex-direction: column;
-  padding: 1em;
-  gap: 1em;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding: 1rem;
+  gap: 0.3rem;
   overflow-y: auto;
-  max-height: 40%;
+  max-height: 60%;
+  /* position: relative; */
+  /* right: 18rem; */
 }
 
+/* .options-master::before {
+  content: "Favourites";
+  position: relative;
+  bottom: 1rem;
+} */
+
 .new-favourite {
-  height: clamp(10px, 20px, 30px);
+  display: flex;
+  justify-content: center;
+  text-wrap: nowrap;
+  height: 0.6rem;
   padding: 1em;
-  border-width: 2px;
+  font-size: smaller;
+  border-width: 0.2rem;
   border-color: blue;
   border-style: solid;
   font-family: "IBM Plex Mono", monospace;
@@ -406,4 +468,12 @@ svg {
 .new-favourite:hover {
   transform: scale(1.03);
   cursor: pointer;
+}
+
+.counter {
+  margin-top: 1rem;
+  font-style: italic;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
 }

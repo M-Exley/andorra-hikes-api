@@ -4,39 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>andorra-hikes-dev</title>
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="button-options">
-        <h4>Arrange by:</h4>
-        <button value="alphabet">A-Z</button>
-        <button value="parish">Parish</button>
-        <button value="difficulty">Difficulty</button>
-        <button value="randomise">Randomise</button>
-        <div class="counter">Hike Count:</div>
-      </div>
-      <div class="colour-codes">
-        <div class="parishes" id="Andorra-la-Vella">Andorra la Vella</div>
-        <div class="parishes" id="Canillo">Canillo</div>
-        <div class="parishes" id="Encamp">Encamp</div>
-        <div class="parishes" id="Escaldes-Engordany">Escaldes-Engordany</div>
-        <div class="parishes" id="La-Massana">La Massana</div>
-        <div class="parishes" id="Ordino">Ordino</div>
-        <div class="parishes" id="Sant-Julia">Sant Julia</div>
-      </div>
-      <div class="difficulty-codes">
-        <div class="difficulties" id="Green">Green</div>
-        <div class="difficulties" id="Blue">Blue</div>
-        <div class="difficulties" id="Red">Red</div>
-        <div class="difficulties" id="Black">Black</div>
-      </div>
       <div class="hike-list-master"></div>
-      <!-- //* added this later on for functionality -->
+      <div class="container-sub">
+        <div class="button-options">
+          <h4>Arrange by:</h4>
+          <button value="alphabet">A-Z</button>
+          <button value="parish">Parish</button>
+          <button value="difficulty">Difficulty</button>
+          <button value="randomise">Randomise</button>
+          <div class="counter">Hike Count:</div>
+        </div>
+        <div class="colour-codes">
+          <div class="parishes" id="Andorra-la-Vella">Andorra la Vella</div>
+          <div class="parishes" id="Canillo">Canillo</div>
+          <div class="parishes" id="Encamp">Encamp</div>
+          <div class="parishes" id="Escaldes-Engordany">Escaldes-Engordany</div>
+          <div class="parishes" id="La-Massana">La Massana</div>
+          <div class="parishes" id="Ordino">Ordino</div>
+          <div class="parishes" id="Sant-Julia">Sant Julia</div>
+        </div>
+        <div class="difficulty-codes">
+          <div class="difficulties" id="Green">Green</div>
+          <div class="difficulties" id="Blue">Blue</div>
+          <div class="difficulties" id="Red">Red</div>
+          <div class="difficulties" id="Black">Black</div>
+        </div>
+        <!-- //* added this later on for functionality -->
+      </div>
     </div>
+
     <div class="hike-card-container"></div>
 
-    <div id="map" style="height: 280px"></div>
+    <div id="map"></div>
 
     <div class="options-master"></div>
 

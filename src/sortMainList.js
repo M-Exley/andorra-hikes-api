@@ -1,12 +1,13 @@
 import cycleArray from "./cycleArray";
 import { arrayOfAll } from "./getHikes";
-import openHikeDiv from "./openHikeDiv"; // to open random hike object
+import openHikeDiv from "./openHikeDiv"; // to open random hike object. No > getHikeInfo
 import { map } from "./loadLeaflet";
 import changeParishBorderColour from "./colourCodeParish";
 import filterByParish from "./filterByParish";
 import filterByDifficulty from "./filterByDifficulty";
+import getHikeInfo from "./getHikeInfo";
 
-/* all of the sticky menu buttons live here */
+/* all of the filter menu buttons live here */
 export const sortMainAlphabetically = function () {
   const sortAlphabetically = arrayOfAll.sort((a, b) =>
     a.trail.localeCompare(b.trail),
@@ -41,12 +42,17 @@ export const sortMainByDifficulty = function () {
 export const sortMainByRandom = function () {
   const sortByRandom = Math.floor(Math.random() * arrayOfAll.length);
   const found = arrayOfAll.find((hike) => hike.number == sortByRandom);
+  console.log("found", found);
   document.querySelector(".hike-card-container").innerHTML = "";
+  // this one doesn't call cycleArray() > getHikeInfo()
 
   if (map) {
-    map.remove(); // clears map div as per Leaflet's demands
+    map.remove();
   }
-  openHikeDiv(found); // FIXME: this causes an issue with the randomise button when selected FIRST
+  openHikeDiv(found); // this works as expected by opening the div
+  document.getElementById("map").style.display = "block";
+  // FIXME: this causes an issue with the randomise button when selected FIRST
+  // ---- is the solution to map.display
+
   // getHikeInfo(found); // this causes an issue with the randomise button
 };
-// this is not finished XX logic finished but could do with some more work

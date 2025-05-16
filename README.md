@@ -73,6 +73,12 @@ These are the aspects that I'm going to focus on for v2:
 
 ![screenshot-five](src/images/screenshot-five.png)
 
+6. The below screenshot shows the following progress being made: grid layout and calculations amended; colours added to hike list depending on filter; map transforms on hover; favourites logic and container added to column; counter added; small Keyframes animation added (not seen in screenshot):
+
+![screenshot-six](src/images/screenshot-six.png)
+
+7. After trying multiple different calculations and variants, I decided that it would be worth re-formatting the layout with Flex. You can see that the right-hand column of the grid is encroaching on the left-hand space when given chance. Using Flex with space-between or something would resolve it.
+
 ### Difficulties
 
 1. The first main issue I had with version two was the dragging element of Leaflet becoming inactive after clicking on a second hike from the list. From what I read online, this is a common issue with Leaflet as the Map element must be empty when another event is fired to re-initialise the map - which is exactly what I was trying to do.
@@ -116,3 +122,20 @@ toArrayHikes.forEach((hike) => {
         }
 })
 ```
+
+5. After connecting my laptop to the larger screen on my desktop set-up, the dreaded issue of scalability and responsive design, which I hadn't accounted for, cropped up so I had to dedicate some hours to re-modelling the structre of the body and the containers. I found that the REM didn't always work as expected, nor did VW. On the other hand, VH seemed to scale things up and down quite well when used alongside REM.
+
+_RESOLUTIONS_
+
+- moving away from PX and using REM where possible
+- re-instating the factory margin reset etc.
+- had a dabble with media queries which I hadn't used before
+- using percentages. Remember to try `FLEX: 1, FLEX: 3` next time
+- to start small with the next project and scale up, not down
+- started looking into React
+
+6. Container elements pushing outside or not downsizing on screen minimise:
+
+![difficulty-two](src/images/screenshot-eight.png)
+
+I have tried a few different things here including changing the box to Flex
