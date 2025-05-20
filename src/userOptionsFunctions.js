@@ -1,5 +1,5 @@
-import { map } from "./loadLeaflet";
-const optionsMaster = document.querySelector(".options-master");
+const favouritesMaster = document.querySelector(".favourites-master");
+const completedMaster = document.querySelector(".completed-master");
 // push objects into arrays
 const favouritesArray = [];
 const completedArray = [];
@@ -17,6 +17,24 @@ export function closeModal() {
   });
 }
 // function completed
+
+function notification(task) {
+  document.querySelector(".notification").style.display = "block";
+  document.querySelector(".notification").textContent = `Added to ${task}!`;
+  setTimeout(() => {
+    document.querySelector(".notification").style.display = "none";
+  }, 2200);
+}
+
+function warn(task) {
+  document.querySelector(".notification").style.display = "block";
+  document.querySelector(".notification").textContent =
+    `This is already in your ${task}!`;
+  setTimeout(() => {
+    document.querySelector(".notification").style.display = "none";
+  }, 2200);
+}
+
 export function addToFavourites(difficulty) {
   const favouriteElement = document.querySelector(".favourite");
   favouriteElement.addEventListener("click", function () {
@@ -31,19 +49,40 @@ export function addToFavourites(difficulty) {
       newFavouriteDiv.classList.add("new-favourite");
       console.log(difficulty);
       newFavouriteDiv.style.borderColor = difficulty;
-      optionsMaster.appendChild(newFavouriteDiv);
-      optionsMaster.style.display = "flex";
+      favouritesMaster.appendChild(newFavouriteDiv);
+
+      const nameFunction = "Favourites";
+      notification(nameFunction);
     } else {
-      alert("this is already in your favourites");
+      const nameFunction = "Favourites";
+      warn(nameFunction);
       return;
     }
   });
 }
 
-export function markAsComplete() {
+export function markAsComplete(completed) {
   const completedElement = document.querySelector(".completed");
   completedElement.addEventListener("click", function () {
     console.log("Add to completed");
+    const title = document.querySelector(".hike-title").textContent;
+
+    if (!completedArray.includes(title)) {
+      completedArray.push(title);
+      const newCompletedDiv = document.createElement("div");
+      newCompletedDiv.innerHTML = `${title}`;
+      newCompletedDiv.classList.add("new-completed");
+      console.log(completed);
+      newCompletedDiv.style.borderColor = completed;
+      completedMaster.appendChild(newCompletedDiv);
+
+      const nameFunction = "Completed";
+      notification(nameFunction);
+    } else {
+      const nameFunction = "Completed";
+      warn(nameFunction);
+      return;
+    }
   });
 }
 

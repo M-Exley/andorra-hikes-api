@@ -77,7 +77,13 @@ These are the aspects that I'm going to focus on for v2:
 
 ![screenshot-six](src/images/screenshot-six.png)
 
-7. After trying multiple different calculations and variants, I decided that it would be worth re-formatting the layout with Flex. You can see that the right-hand column of the grid is encroaching on the left-hand space when given chance. Using Flex with space-between or something would resolve it.
+7. After trying multiple different calculations and variants, I decided that it would be worth re-formatting the layout with Flex. You can see that the right-hand column of the grid is encroaching on the left-hand space when given chance. Using Flex with space-between or something would resolve it:
+
+![screenshot-seven](src/images/screenshot-seven.png) /_ I think this is the correct screenshot _/
+
+8. Showing some more progress as I come to the end of this Version of the app. We have the favourites, completed, and to-do options floating in the top-right corner: toggle mode activates the correct div on click and gets the data. I've also added a nice notifications pop-up to the bottom-left corner which notifies on adding to favourites, completed and to-do; and also checks that it doesn't already exist within these categories. A warning pops up if so.
+
+![screenshot-eight](src/images/screenshot-eight.png)
 
 ### Difficulties
 
@@ -136,6 +142,9 @@ _RESOLUTIONS_
 
 6. Container elements pushing outside or not downsizing on screen minimise:
 
-![difficulty-two](src/images/screenshot-eight.png)
+![difficulty-two](src/images/difficulty-two.png)
 
-I have tried a few different things here including changing the box to Flex
+I have tried a few different things here including changing the box to Flex. In the end, after playing with media queries etc., the resolution was to clamp the left container to a minimum screen width. That seemed to be the best way to fix it for the time being without having to do a full revision of the layout.
+
+> [!NOTE]
+> Next time I'll be focusing on making the app's layout responsive from the outset => mobile orientation
