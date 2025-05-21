@@ -23,6 +23,40 @@ export default function loadLeaflet(lat, long) {
   }).addTo(map);
 
   var marker = L.marker([lat, long]).addTo(map).bindPopup("Starting point");
+
+  // location
+  const findMeButton = document.querySelector(".location-button");
+  findMeButton.addEventListener("click", () => {
+    console.log("Find me button clicked");
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+
+    function success(position) {
+      console.log(position.coords.latitude, position.coords.longitude);
+
+      L.marker([position.coords.latitude, position.coords.longitude])
+        .addTo(map)
+        .bindPopup("Current Location");
+
+      const bounds = L.latLngBounds([
+        [lat, long],
+        [position.coords.latitude, position.coords.longitude],
+      ]);
+
+      map.fitBounds(bounds, {
+        padding: [20, 20],
+        minZoom: 12,
+      });
+    }
+
+    function error() {
+      alert("Sorry, no position available.");
+    }
+  });
 }
 
 export { map };

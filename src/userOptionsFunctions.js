@@ -1,5 +1,7 @@
 const favouritesMaster = document.querySelector(".favourites-master");
 const completedMaster = document.querySelector(".completed-master");
+const toDoMaster = document.querySelector(".to-do-master");
+const notificationDiv = document.querySelector(".notification");
 // push objects into arrays
 const favouritesArray = [];
 const completedArray = [];
@@ -19,19 +21,26 @@ export function closeModal() {
 // function completed
 
 function notification(task) {
-  document.querySelector(".notification").style.display = "block";
-  document.querySelector(".notification").textContent = `Added to ${task}!`;
+  // notificationDiv.style.display = "block";
+  notificationDiv.textContent = `Added to ${task}!`;
+  notificationDiv.classList.remove("hide");
+  notificationDiv.classList.add("show");
   setTimeout(() => {
-    document.querySelector(".notification").style.display = "none";
+    // notificationDiv.style.display = "none";
+    notificationDiv.classList.remove("show");
+    notificationDiv.classList.add("hide");
   }, 2200);
 }
 
 function warn(task) {
-  document.querySelector(".notification").style.display = "block";
-  document.querySelector(".notification").textContent =
-    `This is already in your ${task}!`;
+  // notificationDiv.style.display = "block";
+  notificationDiv.textContent = `This is already in your ${task}!`;
+  notificationDiv.classList.remove("hide");
+  notificationDiv.classList.add("show");
   setTimeout(() => {
-    document.querySelector(".notification").style.display = "none";
+    // notificationDiv.style.display = "none";
+    notificationDiv.classList.remove("show");
+    notificationDiv.classList.add("hide");
   }, 2200);
 }
 
@@ -86,9 +95,27 @@ export function markAsComplete(completed) {
   });
 }
 
-export function markAsToDo() {
+export function markAsToDo(toDo) {
   const toDoElement = document.querySelector(".to-do");
   toDoElement.addEventListener("click", function () {
     console.log("Add to to-do");
+    const title = document.querySelector(".hike-title").textContent;
+
+    if (!toDoArray.includes(title)) {
+      toDoArray.push(title);
+      const newCompletedDiv = document.createElement("div");
+      newCompletedDiv.innerHTML = `${title}`;
+      newCompletedDiv.classList.add("new-todo");
+      console.log(toDo);
+      newCompletedDiv.style.borderColor = toDo;
+      toDoMaster.appendChild(newCompletedDiv);
+
+      const nameFunction = "To Do";
+      notification(nameFunction);
+    } else {
+      const nameFunction = "To Do";
+      warn(nameFunction);
+      return;
+    }
   });
 }
