@@ -3,6 +3,7 @@ import { arrayOfAll } from "./getHikes";
 import openHikeDiv from "./openHikeDiv"; // to open random hike object. No > getHikeInfo
 import { map } from "./loadLeaflet";
 import changeParishBorderColour from "./colourCodeParish";
+import changeDifficultyBorderColour from "./colourCodeDifficulty";
 import filterByParish from "./filterByParish";
 import filterByDifficulty from "./filterByDifficulty";
 import getHikeInfo from "./getHikeInfo";
@@ -26,7 +27,7 @@ export const sortMainByParish = function () {
 
     changeParishBorderColour(value);
   });
-  filterByParish(arrayOfAll); // filtering original array and passing in as argument
+  filterByParish(arrayOfAll); // filtering original array and passing in as argument: ACTIVATES CLICK
 };
 
 export const sortMainByDifficulty = function () {
@@ -36,7 +37,7 @@ export const sortMainByDifficulty = function () {
   console.log(`Sorted by difficulty: `, sortByDifficulty);
   cycleArray(sortByDifficulty);
 
-  filterByDifficulty(arrayOfAll);
+  filterByDifficulty(arrayOfAll); // ACTIVATES CLICK
 };
 
 export const sortMainByRandom = function () {
@@ -49,10 +50,10 @@ export const sortMainByRandom = function () {
   if (map) {
     map.remove();
   }
-  openHikeDiv(found); // this works as expected by opening the div
   document.getElementById("map").style.display = "block";
+  openHikeDiv(found); // this works as expected by opening the div
   // FIXME: this causes an issue with the randomise button when selected FIRST
-  // ---- is the solution to map.display
+  // ---- is the solution to map.display DONE
 
   // getHikeInfo(found); // this causes an issue with the randomise button
 };

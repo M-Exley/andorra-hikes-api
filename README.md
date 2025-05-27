@@ -40,16 +40,16 @@ These are the aspects that I'm going to focus on for v2:
 
 - removing anything that is not required: Sort by option - DONE
 - add map using Leaflet - DONE
-- (possibly with current location request)
+- (possibly with current location request) - DONE
 - add color guidance or borders to activate once the hikes have been sorted by parish and difficulty - DONE
-- add animation to the 'key' - clickme bounce - DONE with parish and difficulty options
-- add counter
-- add functionality to check-in to refuge - not sure about this one
-- digital passport which would digitize the currently available one
-- add to favourites - DONE.. functionality?
+- add animation to the 'key' - clickme bounce - DONE
+- add counter - DONE
+- add functionality to check-in to refuge - not sure about this one - NOT DONE
+- digital passport which would digitize the currently available one - NOT DONE
+- add to favourites - DONE.. >> REMOVE FROM FAVOURITES ETC.?
 - a suggestion was to have a short video of each showing what they are really like
-- ADD HUTS and rating
-- Route maps?? hard work
+- ADD HUTS and rating - NOT DONE
+- Route maps?? hard work - LOOKED INTO BUT NOT GOING TO DO
 
 ### Screenshots
 
@@ -79,7 +79,7 @@ These are the aspects that I'm going to focus on for v2:
 
 7. After trying multiple different calculations and variants, I decided that it would be worth re-formatting the layout with Flex. You can see that the right-hand column of the grid is encroaching on the left-hand space when given chance. Using Flex with space-between or something would resolve it:
 
-![screenshot-seven](src/images/screenshot-seven.png) /_ I think this is the correct screenshot _/
+![screenshot-seven](src/images/screenshot-seven.png)
 
 8. Showing some more progress as I come to the end of this Version of the app. We have the favourites, completed, and to-do options floating in the top-right corner: toggle mode activates the correct div on click and gets the data. I've also added a nice notifications pop-up to the bottom-left corner which notifies on adding to favourites, completed and to-do; and also checks that it doesn't already exist within these categories. A warning pops up if so.
 
@@ -99,7 +99,7 @@ These are the aspects that I'm going to focus on for v2:
       }
 ```
 
-Although the solution is simple, it took many different orders, modules and variations to get it correct owing to Leaflet being quite fussy.
+Although the solution is simple, it took many different orders, modules and variations to get it correct due to Leaflet being quite fussy.
 
 2. The next one wasn't so much problematic as long-winded as I had to find the coordinates for 50+ hikes. I used ChatGPT to see if it could handle the request but it repeatedly returned ten or so hikes with questionable coordinates. It has to be done manually for peace of mind >> it's taken around one day to correct.
 
@@ -129,11 +129,11 @@ toArrayHikes.forEach((hike) => {
 })
 ```
 
-5. After connecting my laptop to the larger screen on my desktop set-up, the dreaded issue of scalability and responsive design, which I hadn't accounted for, cropped up so I had to dedicate some hours to re-modelling the structre of the body and the containers. I found that the REM didn't always work as expected, nor did VW. On the other hand, VH seemed to scale things up and down quite well when used alongside REM.
+5. After connecting my laptop to the larger screen on my desktop set-up, the dreaded issue of scalability and responsive design - which I hadn't accounted for - cropped up, so I had to dedicate some hours to re-modelling the structre of the body and the containers. I found that the `REM` didn't always work as expected, nor did `VW`. On the other hand, `VH` seemed to scale things up and down quite well when used alongside REM.
 
-_RESOLUTIONS_
+_RESOLUTIONS:_
 
-- moving away from PX and using REM where possible
+- moving away from `PX` and using `REM` where possible
 - re-instating the factory margin reset etc.
 - had a dabble with media queries which I hadn't used before
 - using percentages. Remember to try `FLEX: 1, FLEX: 3` next time
@@ -144,7 +144,44 @@ _RESOLUTIONS_
 
 ![difficulty-two](src/images/difficulty-two.png)
 
-I have tried a few different things here including changing the box to Flex. In the end, after playing with media queries etc., the resolution was to clamp the left container to a minimum screen width. That seemed to be the best way to fix it for the time being without having to do a full revision of the layout.
+I have tried a few different things here including changing the box to `Flex`. In the end, after playing with media queries etc., the resolution was to `clamp` the left container to a minimum screen width. That seemed to be the best way to fix it for the time being without having to do a full revision of the layout.
 
 > [!NOTE]
 > Next time I'll be focusing on making the app's layout responsive from the outset => mobile orientation
+
+## Concluding Version Two
+
+This is what the project looks like towards the end after another two weeks (22nd May):
+
+![conclusion-one](src/images/conclusion-one.png)
+
+_Features:_
+
+- functionality to filter the left master container with the hikes by: Alphabetical, Area (Parish), Difficulty (green, blue, red, black) and Random option. Options are colour-coded throughout the app using logic.
+
+- a key for Parish or Difficulty that is colour-coded and has a small Keyframes feature.
+
+- hike information card containing de-structured data (including coordinates and SVGs) and a list of user options with hover titles and 'animations'. The final SVG connects to the Map below => Find Me
+
+- Leaflet map that clears and changes according to each card. More features here would have been nice but I'm not going to continue with it for now. I added a Polyline and it was completely rigid and straight from A to B.
+
+- user options menu on the right which is fixed and takes priority when minimised. They inherit their colours programmatically. To finish off I need to add more functionality: maybe drag and drop and delete/remove from category; and also hide when hovering away.
+
+- user's actions are confirmed with a nice notification in the bottom left corner. This stops them re-adding hikes to the categories.
+
+- there is an issue with Leaflet rendering when Randomise is clicked first.
+
+It seems that I've added or improved the things which I set out to. Some things that will distract me too much from progressing with my skills have been ignored, such as adding pictures, videos, or reviews. The last thing that I might add is whether or not the hikes are based around mountain peak climbs and whether or not there is a mountain refuge on the way. A search bar with validation would also be a nice touch.
+
+After believing that I was close to finishing, and happy with the user options menu on the right, I noticed that the browser zoom had been set to 67% all along. The change to 100% results in this mess:
+
+![conclusion-two](src/images/conclusion-two.png)
+
+Following the correction, I made a list of all of the minor details that needed to be finished in order for me to feel that the project is completed:
+
+- close options menu on hover-off - already started
+- make hike info card smaller with screen minimise
+- to make the options menu responsive first click - this is due to the click event being embedded
+- return the hike card on options menu click
+- difficulty colour full list on filter by difficulty - DONE but logic could be better
+- the triple click event on the options menu

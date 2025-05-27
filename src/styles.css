@@ -1,16 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 @media screen and (min-width: 1800px) {
-  .container {
-    width: clamp(50rem, 60rem, 85rem) !important;
-  }
-
   .hike-card-container {
     transform: scale(1.2);
     transform-origin: top left;
   }
 }
 
+@media screen and (min-height: 630px) {
+  #map {
+    transform-origin: top;
+  }
+
+  /* #map:hover {
+    transform-origin: bottom !important;
+  } */
+}
+
+/* 662px */
 @media screen and (min-width: 2300px) {
   #map {
     transform: scale(1.4);
@@ -22,17 +29,6 @@
   }
 }
 
-@media screen and (max-height: 900px) {
-  .container {
-    min-height: 720px;
-  }
-}
-
-/* @media screen and (max-width: 2000px) {
-  /* .favourites-master {
-    display: none !important;
-  } */
-
 @media screen and (max-width: 1400px) {
   #map {
     transform: scale(0.7);
@@ -42,7 +38,7 @@
 
   #map:hover {
     transform: scale(0.8) !important;
-    transform-origin: top right !important;
+    transform-origin: right !important;
   }
 }
 
@@ -55,13 +51,6 @@ html {
 
 body {
   background: #2a7b9b;
-  /* background: linear-gradient(
-    124deg,
-    rgba(42, 123, 155, 0.76) 0%,
-    rgba(71, 87, 79, 1) 0%,
-    rgba(232, 215, 65, 0.89) 100%
-  ); */
-  /* background: #2a7b9b; */
   background: linear-gradient(
     274deg,
     rgba(42, 123, 155, 0.76) 0%,
@@ -69,35 +58,33 @@ body {
     rgba(97, 89, 27, 0.57) 100%
   );
   height: 100dvh;
-  /* width: 100%;  this seemed to help with the blue bit at the edge*/
   display: grid;
   grid-template-columns: auto auto 20%;
-  /* grid-template-columns: auto-fit, minmax(30%, 1fr); */
   grid-template-rows: repeat(2, 1fr);
   column-gap: 2rem;
   overflow-y: hidden;
 }
 
 .container {
-  container-type: inline-size;
+  /* container-type: inline-size; */
   background-color: rgb(144, 124, 124);
   grid-column: 1;
   grid-row: 1 / -1;
   margin-left: 2vw;
   margin-top: 1vw;
-  padding: 2rem 3rem 4rem 0.2rem;
+  /* padding: 2rem 3rem 4rem 0.2rem; */
+  padding: 0.5rem;
+  padding-right: 2rem;
   border: 2px black solid;
-  height: clamp(70dvh, 80%, 90dvh);
-  /* width: clamp(650px, 750px, 800px); */
-  width: clamp(40.625rem, 53.875rem, 55rem);
+  height: clamp(80%, 85%, 90%);
+  /* width: clamp(40.625rem, 53.875rem, 55rem); OG */
+  width: clamp(550px, 40vw, 100rem);
+  gap: 2rem;
   overflow-x: hidden;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr auto; */
   display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
   text-wrap: nowrap;
-  /* gap: 1.5rem; */
   overflow-x: hidden;
   box-sizing: border-box;
   background: #c27367;
@@ -111,22 +98,21 @@ body {
 }
 
 .container-sub {
-  display: grid;
-  grid-template-columns: clamp(190px, 200px, 300px);
-  grid-template-rows: 2;
-  max-width: 300px;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: calc(5%);
+  position: sticky;
+  top: 0;
 }
+
 .hike-list-master {
-  flex: 2;
-  padding-bottom: 5rem;
-  min-width: fit-content;
+  /* flex: 2; */
+  margin-bottom: 5rem;
   overflow-y: visible;
   padding-left: 1rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 
 .hike-list-master-filter {
@@ -139,7 +125,7 @@ body {
   flex-basis: 0;
   grid-column: 1 / 2;
   margin: 1rem 0px;
-  font-size: 2.5vh;
+  font-size: 2vh;
   max-width: fit-content;
   height: clamp(2.2rem, 2.7rem, 2.7rem);
   font-family: "IBM Plex Mono", monospace;
@@ -150,18 +136,18 @@ body {
   animation-fill-mode: forwards;
   animation-duration: 2s;
   animation-timing-function: ease-out;
+  transition: 0.2s ease-in;
 }
 
-.hike-cards:active {
-  border: white 2px solid;
+.hike-cards:active,
+.hike-cards-difficulty:active {
+  border-right: white 0.2rem solid;
 }
 
 .hike-cards:hover {
   cursor: pointer;
-  border: 1.5px black solid;
   color: white;
-  transition: border 1s ease;
-  transition: color 0.5s ease;
+  transition: color 0.3s ease;
 }
 
 .hike-cards-difficulty {
@@ -169,27 +155,23 @@ body {
 }
 
 .hike-card-container {
+  /* width: calc(80%); */
+  /* width: clamp(45%, 80%, 80%); */
   display: none;
   grid-column: 2;
   grid-row: 1 / 2;
   margin-top: 1rem;
   width: fit-content;
-  /* width: clamp(200px, 500px, 700px); */
-
   height: fit-content;
   background-color: white;
-  gap: 3px;
 }
 
 .hike-card-div {
-  border: black 3px dotted;
-  height: fit-content;
-  min-width: fit-content;
+  /* height: fit-content; */
   padding: 0.5em;
-  border: 3px inset black;
+  border: 0.25rem inset black;
   font-family: "IBM Plex Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
+  font-weight: 500;
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
@@ -201,6 +183,7 @@ body {
 }
 
 .hike-card-div-left {
+  font-size: 0.77rem;
   flex-direction: column;
   width: fit-content;
   border: outset 3px;
@@ -226,7 +209,6 @@ body {
   grid-column: 2;
   grid-row: 2 / -1;
   border: black 2px solid;
-  /* margin-top: em; */
   transition: ease-out 0.5s;
 }
 
@@ -239,32 +221,31 @@ body {
 .dot {
   position: relative;
   top: 3px;
-  height: 16px;
+  height: 1rem;
   width: 100px;
   background-color: red;
   display: inline-block;
 }
 
 .button-options {
-  /* grid-column: 2; */
   height: fit-content;
   width: fit-content;
-  position: fixed;
   top: 5%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.2rem;
   z-index: 10;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .button-options button {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .button-options button:hover {
-  transform: scale(1.2);
+  transform: scale(1.06);
+  transform-origin: left;
 }
 
 .X,
@@ -274,16 +255,19 @@ body {
   font-size: x-large;
   font-weight: bold;
   transition: transform 0.3s ease;
+  background-color: orange;
+  pointer-events: all;
 }
 
 .X:hover,
 .completed:hover,
 .to-do:hover,
-.favourite:hover,
+.favourites:hover,
 .location-button {
   cursor: pointer;
   cursor: pointer;
   transform: scale(1.1);
+  pointer-events: all;
 }
 
 .completed:hover {
@@ -296,7 +280,7 @@ body {
 
 h4 {
   font-family: Roboto, sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -318,23 +302,23 @@ h4 {
 
 .hike-title {
   font-size: larger;
-  padding-bottom: 5px;
+  font-weight: 600;
 }
 
-.X:active,
+/* .X:active,
 .favourites:active,
 .completed:active,
 .to-do:active {
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: green;
-}
+} */
 
-.X:hover,
+/* .X:hover,
 .favourites:hover,
 .completed:hover,
 .to-do:hover {
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.58);
-}
+} */
 
 .X {
   font-size: xx-large;
@@ -342,6 +326,8 @@ h4 {
 }
 
 svg {
+  /* pointer-events: all; */
+  cursor: pointer;
   background-color: none;
   fill: black;
 }
@@ -356,33 +342,33 @@ svg {
 
 .colour-codes,
 .difficulty-codes {
-  font-size: 1.3rem;
+  font-size: 1.13em;
   display: none;
   text-wrap: nowrap;
-  position: fixed;
-  top: 19rem;
   flex-direction: column;
-  flex-shrink: 2;
   border: 1px black solid;
   min-height: fit-content;
-  /* height: clamp(200px, 25rem, 400px); */
-  gap: 0.5em;
+  min-width: calc(70%);
+  gap: 1rem;
   padding: 0.2em;
-  /* overflow-y: hidden; */
-  /* max-width: 30%; */
 }
 
 .colour-codes::before,
 .difficulty-codes::before {
   content: "Key";
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
 }
 
 .parishes,
 .difficulties {
-  font-family: Roboto, sans-serif;
-  font-size: 1.4rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2vh;
   border: 0.4em black solid;
   padding: 0.2em;
+  text-align: right;
 }
 
 .parishes:hover,
@@ -390,16 +376,16 @@ svg {
   cursor: pointer;
   animation-name: bounce;
   animation-duration: 1s;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
   animation-timing-function: ease-out;
   animation-delay: 0.05s;
 }
 
 .difficulties {
-  font-size: 1.5rem;
   border-width: 2px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  text-align: left;
 }
 #Andorra-la-Vella {
   border: deeppink 0.2rem solid;
@@ -444,15 +430,34 @@ svg {
   background-color: rgba(46, 245, 11, 0.58);
 }
 
+.green {
+  background-color: rgba(46, 245, 11, 0.58);
+}
+
 #Blue {
   background-color: rgba(2, 28, 224, 0.58);
+  color: white;
+}
+
+.blue {
+  background-color: rgba(2, 28, 224, 0.58);
+  color: white;
 }
 
 #Red {
   background-color: rgba(249, 11, 11, 0.58);
 }
 
+.red {
+  background-color: rgba(249, 11, 11, 0.58);
+}
+
 #Black {
+  background-color: rgba(0, 0, 0, 0.58);
+  color: white;
+}
+
+.black {
   background-color: rgba(0, 0, 0, 0.58);
   color: white;
 }
@@ -464,7 +469,7 @@ svg {
   50% {
     width: 0.6;
     transform: translateX(5px);
-    color: red;
+    color: white;
   }
   100% {
     transform: translateX(0px);
@@ -472,58 +477,67 @@ svg {
   }
 }
 
+.flex-options {
+  grid-column: 3;
+  grid-row: 1 / 2;
+  position: fixed;
+  top: 0;
+  right: 0rem;
+  border-left: 0.2rem black solid;
+  border-bottom: 0.2rem black solid;
+  max-height: 97dvh;
+  overflow-y: auto;
+  width: clamp(300px, 17%, 18%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+  overflow-x: none;
+}
+
 .options-master {
   display: flex; /* need to change this to get rid of black blip */
   flex-direction: column;
-  /* position: fixed; */
-  /* right: 0rem; */
-  /* top: 3rem; */
   background-color: white;
-  height: fit-content;
-  overflow-y: auto;
+  gap: calc(2%);
+  flex: 1;
+  padding-top: 5vh;
 }
 
 .favourites-master,
 .completed-master,
 .to-do-master {
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
   width: fit-content;
-
   grid-column: 3;
   grid-row: 1;
   border: 2px solid black;
   margin-right: 2vw;
   margin-left: 2vw;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
   overflow-x: hidden;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-content: flex-start;
-  align-self: center;
-  justify-content: center;
-  padding: 2rem;
+  /* align-self: center; */
+  padding: 1rem;
   gap: 0.3rem;
   overflow-y: auto;
-  max-height: fit-content;
-  position: relative;
 }
-/* 
-.favourites-master::before {
-  content: "Favourites";
-  position: relative;
-  bottom: 1rem;
-} */
 
 .new-favourite,
 .new-completed,
 .new-todo {
   color: goldenrod;
   display: flex;
-  justify-content: center;
-  text-wrap: nowrap;
-  height: 0.6rem;
-  padding: 1em;
-  font-size: smaller;
+  justify-content: flex-start;
+  text-wrap: wrap;
+  /* height: 0.6rem; */
+  height: max-content;
+  padding: 0.35em;
+  font-size: 1.65vh;
   border-width: 0.2rem;
   border-color: blue;
   border-style: solid;
@@ -554,39 +568,64 @@ svg {
   margin-top: 1rem;
   font-style: italic;
   font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 2vh;
 }
 
 .options-dropdown {
-  min-height: calc(5%);
-  width: 100%;
+  position: fixed;
+  width: inherit;
   background-color: azure;
   top: 0;
   right: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   z-index: 1000;
-  font-size: 2rem;
+  margin-bottom: 3vh;
 }
 
-.options-dropdown > a {
+.options-dropdown span * {
   color: black;
   text-decoration: none;
   font-weight: bold;
-  font-size: 2rem;
-  /* transform: scale(1.2); */
+  pointer-events: all;
 }
 
 .toponomy {
-  font-size: smaller;
+  padding-left: 1.5rem;
+  /* font-size: smaller; */
   font-style: italic;
 }
 
 svg:hover:not(.location-button) {
   fill: red;
+}
+
+.location-button:hover {
+  /* fill: blue; */
+  animation: bounceLocation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-delay: 0.05s;
+}
+
+@keyframes bounceLocation {
+  0% {
+    transform: scale(1);
+    color: black;
+  }
+  50% {
+    transform: scale(1.4);
+    transform-origin: bottom;
+    fill: blue;
+  }
+  100% {
+    transform: scale(1);
+    color: black;
+  }
 }
 
 .notification {
@@ -598,7 +637,7 @@ svg:hover:not(.location-button) {
   bottom: 0.2rem;
   left: 0.2rem;
   border: black 0.2rem solid;
-  font-size: 2rem;
+  font-size: 3.4vh;
   bottom: -100px;
   right: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -625,19 +664,25 @@ svg:hover:not(.location-button) {
   pointer-events: none;
 }
 
-.flex-options {
-  grid-column: 3;
-  grid-row: 1 / 2;
-  position: fixed;
-  top: 0;
-  right: 0rem;
-  border-left: 0.2rem black solid;
-  border-bottom: 0.2rem black solid;
-  height: fit-content;
-  width: clamp(10%, 15%, 15%);
+/* .display-flex {
   display: flex;
-  flex-direction: column;
-  /* gap: 1rem; */
-  z-index: 1000;
-  overflow-x: none;
+} */
+
+.remove {
+  height: 1rem;
+  /* border-radius: 50%; */
+  width: 1rem;
+  font-size: 0.5rem;
+  color: red;
+  margin-right: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove:hover {
+  color: red;
+  transform: scale(1.3);
+  font-weight: 700;
+  transition: 0.3s ease-out;
 }

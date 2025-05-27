@@ -12,6 +12,7 @@ export default function changeParishBorderColour(area) {
     const divArea = div.dataset.set?.trim();
     if (divArea === area) {
       div.classList.add("hike-cards-difficulty");
+      div.classList.remove("red", "blue", "green", "black");
 
       switch (area) {
         case "Andorra la Vella":

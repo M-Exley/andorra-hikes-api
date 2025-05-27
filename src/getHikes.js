@@ -18,7 +18,7 @@ async function cycleArrayTest() {
 
 export default async function getHikes() {
   await cycleArrayTest(); // Call it inside getHikes
-  console.group(arrayOfAll);
+  // console.group(arrayOfAll);
   getHikeInfo();
   stickyButtons();
 }

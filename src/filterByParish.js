@@ -17,9 +17,9 @@ export default function filterByParish(arrayOfAll) {
 
       toArrayHikes.forEach((hike) => {
         if (hike.dataset.set === target) {
-          console.log(hike);
+          // console.log(hike);
           newArray = arrayOfAll.filter((hikeObj) => hikeObj.area === target);
-          console.log(newArray);
+          // console.log(newArray);
         }
         hikeListMaster.innerHTML = "";
         const hyphenatedTarget = target.replace(/\s+/g, "-");

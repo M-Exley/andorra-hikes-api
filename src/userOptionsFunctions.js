@@ -1,3 +1,5 @@
+import openHikeDiv from "./openHikeDiv";
+
 const favouritesMaster = document.querySelector(".favourites-master");
 const completedMaster = document.querySelector(".completed-master");
 const toDoMaster = document.querySelector(".to-do-master");
@@ -45,18 +47,18 @@ function warn(task) {
 }
 
 export function addToFavourites(difficulty) {
-  const favouriteElement = document.querySelector(".favourite");
+  const favouriteElement = document.querySelector(".favourites");
   favouriteElement.addEventListener("click", function () {
-    console.log("Add to favourites");
     const title = document.querySelector(".hike-title").textContent;
-    console.log("before", favouritesArray);
 
     if (!favouritesArray.includes(title)) {
       favouritesArray.push(title);
       const newFavouriteDiv = document.createElement("div");
-      newFavouriteDiv.innerHTML = `${title}`;
+      newFavouriteDiv.innerHTML = `<button title="Remove from category" class="remove">
+      X
+    </button>${title}`;
       newFavouriteDiv.classList.add("new-favourite");
-      console.log(difficulty);
+      newFavouriteDiv.classList.add("click-hike");
       newFavouriteDiv.style.borderColor = difficulty;
       favouritesMaster.appendChild(newFavouriteDiv);
 
@@ -67,21 +69,22 @@ export function addToFavourites(difficulty) {
       warn(nameFunction);
       return;
     }
+    removeFromCategory(favouritesArray, "favourite");
   });
 }
 
 export function markAsComplete(completed) {
   const completedElement = document.querySelector(".completed");
   completedElement.addEventListener("click", function () {
-    console.log("Add to completed");
     const title = document.querySelector(".hike-title").textContent;
 
     if (!completedArray.includes(title)) {
       completedArray.push(title);
       const newCompletedDiv = document.createElement("div");
-      newCompletedDiv.innerHTML = `${title}`;
+      newCompletedDiv.innerHTML = `<button title="Remove from category" class="remove">
+      X
+    </button>${title}`;
       newCompletedDiv.classList.add("new-completed");
-      console.log(completed);
       newCompletedDiv.style.borderColor = completed;
       completedMaster.appendChild(newCompletedDiv);
 
@@ -92,21 +95,22 @@ export function markAsComplete(completed) {
       warn(nameFunction);
       return;
     }
+    removeFromCategory(completedArray, "completed");
   });
 }
 
 export function markAsToDo(toDo) {
   const toDoElement = document.querySelector(".to-do");
   toDoElement.addEventListener("click", function () {
-    console.log("Add to to-do");
     const title = document.querySelector(".hike-title").textContent;
 
     if (!toDoArray.includes(title)) {
       toDoArray.push(title);
       const newCompletedDiv = document.createElement("div");
-      newCompletedDiv.innerHTML = `${title}`;
+      newCompletedDiv.innerHTML = `<button title="Remove from category" class="remove">
+        X
+      </button>${title}`;
       newCompletedDiv.classList.add("new-todo");
-      console.log(toDo);
       newCompletedDiv.style.borderColor = toDo;
       toDoMaster.appendChild(newCompletedDiv);
 
@@ -117,5 +121,43 @@ export function markAsToDo(toDo) {
       warn(nameFunction);
       return;
     }
+    removeFromCategory(toDoArray, "todo");
+  });
+}
+
+function removeFromCategory(arrayName, className) {
+  const allRemoveButtons = document.querySelectorAll(".remove");
+  const toArray = [...allRemoveButtons];
+
+  toArray.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      console.log("Remove button clicked.");
+      const Target = e.target.nextSibling.textContent;
+      console.log(Target);
+
+      // favouritesArray.splice(Target, 1);
+      const index = arrayName.indexOf(Target);
+      if (index !== -1) {
+        arrayName.splice(index, 1);
+        console.log(e.target.closest(`.new-${className}`));
+        e.target.closest(`.new-${className}`).remove();
+        console.log(arrayName);
+      }
+    });
+  });
+  openInfoFromOptions();
+}
+
+export function openInfoFromOptions() {
+  // will try the same route in
+  const allRemoveButtons = document.querySelectorAll(".click-hike");
+  const toArray = [...allRemoveButtons];
+
+  toArray.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const Target = e.target.innerText.replace("X", "").trim();
+      console.log("Target:", Target);
+      openHikeDiv();
+    });
   });
 }
