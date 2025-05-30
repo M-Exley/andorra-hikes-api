@@ -34,7 +34,7 @@ Upon completing the original app, I came across another idea for various English
 
 ### Improvements
 
-I would really like to host the data somewhere as if it were a real API. By far the most labour-intensive task here was inputting the data from the physical leaflets to the JSON file. There was no other obvious way to do this as it isn't in as much detail online - one of the driving factors of the project.
+I would really like to host the data somewhere as if it were a real API. By far the most labour-intensive task here was inputting the data from the physical leaflets to the JSON file. There was no other obvious way to do this as it isn't in as much detail online - one of the driving factors behind the project.
 
 These are the aspects that I'm going to focus on for v2:
 
@@ -46,7 +46,7 @@ These are the aspects that I'm going to focus on for v2:
 - add counter - DONE
 - add functionality to check-in to refuge - not sure about this one - NOT DONE
 - digital passport which would digitize the currently available one - NOT DONE
-- add to favourites - DONE.. >> REMOVE FROM FAVOURITES ETC.?
+- add to favourites - DONE.. >> REMOVE FROM FAVOURITES >> DONE
 - a suggestion was to have a short video of each showing what they are really like
 - ADD HUTS and rating - NOT DONE
 - Route maps?? hard work - LOOKED INTO BUT NOT GOING TO DO
@@ -73,7 +73,7 @@ These are the aspects that I'm going to focus on for v2:
 
 ![screenshot-five](src/images/screenshot-five.png)
 
-6. The below screenshot shows the following progress being made: grid layout and calculations amended; colours added to hike list depending on filter; map transforms on hover; favourites logic and container added to column; counter added; small Keyframes animation added (not seen in screenshot):
+6. The below screenshot shows the following progress being made: grid layout and calculations amended; colours added to hike list depending on filter; map transformations on hover; favourites logic and container added to column; counter added; small Keyframes animation added (not seen in screenshot):
 
 ![screenshot-six](src/images/screenshot-six.png)
 
@@ -107,7 +107,7 @@ Although the solution is simple, it took many different orders, modules and vari
 
 - _RESOLVED_ by adding a class dynamically on creation - a new move for me
 
-4. I had to dedicate a fair amount of time in trying to figure out a way to get the filtered parish options first to display in the hike list master container and then to get the colours to apply using the existing IDs. The main issue is the format: #Andorra-la-Vella - capitalised and hyphenated:
+4. I had to dedicate a fair amount of time to trying to figure out a way to get the filtered parish options first to display in the hike list master container and then to get the colours to apply using the existing IDs. The main issue is the format: #Andorra-la-Vella - capitalised and hyphenated:
 
 ![difficulty-one](src/images/difficulty-one.png)
 
@@ -188,7 +188,7 @@ Following the correction, I made a list of all of the minor issues that need to 
 
 ### Final Product
 
-The project will not be perfect at this level but I'm happy with different elements of functionality and the visual design of the app. The final version looks as follows:
+The project will not be perfect at this level but I'm happy with different elements of functionality and the visual design of the app. The final version is:
 
 ![conclusion-three](src/images/conclusion-three.png)
 
