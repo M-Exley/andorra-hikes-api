@@ -28,9 +28,11 @@ export function optionsSidebarFunction() {
       }
     });
   });
-  // closeSidebar();
 }
 
+// Leaving this here in case I want to re-develop using React
+
+// closeSidebar();
 // export function closeSidebar() {
 //   optionsMasterDiv.addEventListener("mouseleave", (e) => {
 //     // if (e.target !== optionsMasterDiv)

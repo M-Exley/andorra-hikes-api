@@ -20,10 +20,10 @@ export default function stickyButtons() {
 
       const resultOfStickyClick = [];
       resultOfStickyClick.push(res);
-      console.log(resultOfStickyClick);
-      /* ternary operation below to cycle through sort functions 
-            ternary is not sufficient
-      */
+      // console.log(resultOfStickyClick);
+
+      // ternary is not sufficient
+
       if (String(resultOfStickyClick) === "alphabet") {
         sortMainAlphabetically();
         count();
@@ -49,5 +49,3 @@ export default function stickyButtons() {
     });
   });
 }
-
-// export { resultOfStickyClick };

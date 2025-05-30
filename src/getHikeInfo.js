@@ -1,34 +1,55 @@
-/* this function will open up the object and display the data in the second column + map */
+/* this function will open up the object and display the data in the second column + map
+
+I had to change it right at the end to allow the optionsMenu hikes to be re-opened. In order to do this the function was re-structured with renderHike enclosing the bulk of the functionality and being called individually within the conditional logic 
+
+*/
 
 import findHikeInArray from "./findHikeInArray";
 import openHikeDiv from "./openHikeDiv";
 import destructure from "./destructure";
 import { map } from "./loadLeaflet";
 
-export default function getHikeInfo() {
-  document.querySelectorAll(".hike-cards").forEach((div) => {
-    div.addEventListener("click", function () {
-      document.querySelector(".hike-card-container").innerHTML = "";
+export default function getHikeInfo(clickEventFromOptions) {
+  const allHikeCards = document.querySelectorAll(".hike-cards");
 
-      if (map) {
-        map.remove(); // clears map div as per Leaflet's demands
-      }
+  if (clickEventFromOptions) {
+    renderHike(clickEventFromOptions);
+    return;
+  }
 
-      const nameOfHike = div.textContent.trim();
-      const findResult = findHikeInArray(nameOfHike); // Compares div and nameOfHike. searches the arrayOfAll > true with some. now it logs nameOfHike (clicked hike)
-      console.log(`Name of hike: ${nameOfHike}`, findResult);
-      const findResultDestructured = destructure(findResult);
-      openHikeDiv(findResultDestructured);
+  allHikeCards.forEach((card) => {
+    card.addEventListener("click", function (e) {
+      const clickedCard = e.currentTarget || e.target.closest(".hike-cards");
+      if (!clickedCard) return;
 
-      document.getElementById("map").style.display = "block";
-
-      map?.dragging.enabled();
-
-      setTimeout(() => {
-        map.invalidateSize();
-      }, 100);
-
-      return nameOfHike; // n.b. that it works when clicked but is undefined before
+      const nameOfHike = clickedCard.textContent.trim();
+      renderHike(nameOfHike);
     });
   });
+}
+
+function renderHike(nameOfHike) {
+  // I think it needs something here to check whether the card container is already populated
+  document.querySelector(".hike-card-container").innerHTML = "";
+
+  if (typeof map !== "undefined" && map) {
+    map.remove();
+  }
+
+  const findResult = findHikeInArray(nameOfHike);
+  console.log(`Name of hike: ${nameOfHike}`, findResult);
+
+  const findResultDestructured = destructure(findResult);
+  openHikeDiv(findResultDestructured);
+
+  const mapElement = document.getElementById("map");
+  if (mapElement) {
+    mapElement.style.display = "block";
+  }
+
+  map?.dragging?.enabled?.();
+
+  setTimeout(() => {
+    map?.invalidateSize?.();
+  }, 100);
 }

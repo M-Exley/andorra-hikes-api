@@ -11,10 +11,6 @@
   #map {
     transform-origin: top;
   }
-
-  /* #map:hover {
-    transform-origin: bottom !important;
-  } */
 }
 
 /* 662px */
@@ -41,7 +37,14 @@
     transform-origin: right !important;
   }
 }
-
+@media screen and (max-width: 1124px) {
+  .options-master {
+    background-color: whitesmoke !important;
+  }
+  .flex-options {
+    box-shadow: -9px 14px 25px -4px rgba(0, 0, 0, 0.85) !important;
+  }
+}
 body,
 html {
   margin: 0;
@@ -66,18 +69,15 @@ body {
 }
 
 .container {
-  /* container-type: inline-size; */
   background-color: rgb(144, 124, 124);
   grid-column: 1;
   grid-row: 1 / -1;
   margin-left: 2vw;
   margin-top: 1vw;
-  /* padding: 2rem 3rem 4rem 0.2rem; */
   padding: 0.5rem;
   padding-right: 2rem;
   border: 2px black solid;
   height: clamp(80%, 85%, 90%);
-  /* width: clamp(40.625rem, 53.875rem, 55rem); OG */
   width: clamp(550px, 40vw, 100rem);
   gap: 2rem;
   overflow-x: hidden;
@@ -106,7 +106,6 @@ body {
 }
 
 .hike-list-master {
-  /* flex: 2; */
   margin-bottom: 5rem;
   overflow-y: visible;
   padding-left: 1rem;
@@ -131,12 +130,12 @@ body {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-style: normal;
-  animation-name: shuffle;
-  animation: ease-out;
-  animation-fill-mode: forwards;
-  animation-duration: 2s;
+  cursor: pointer;
+  animation-name: bounceHike;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
   animation-timing-function: ease-out;
-  transition: 0.2s ease-in;
+  animation-delay: 0.05s;
 }
 
 .hike-cards:active,
@@ -155,8 +154,6 @@ body {
 }
 
 .hike-card-container {
-  /* width: calc(80%); */
-  /* width: clamp(45%, 80%, 80%); */
   display: none;
   grid-column: 2;
   grid-row: 1 / 2;
@@ -167,7 +164,6 @@ body {
 }
 
 .hike-card-div {
-  /* height: fit-content; */
   padding: 0.5em;
   border: 0.25rem inset black;
   font-family: "IBM Plex Mono", monospace;
@@ -255,7 +251,6 @@ body {
   font-size: x-large;
   font-weight: bold;
   transition: transform 0.3s ease;
-  background-color: orange;
   pointer-events: all;
 }
 
@@ -282,17 +277,11 @@ h4 {
   font-family: Roboto, sans-serif;
   font-weight: 600;
   font-style: italic;
-}
-
-@keyframes shuffle {
-  from {
-    transform: rotate(0);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: rotate(15);
-  }
+  animation-name: bounceHike;
+  animation-duration: 1s;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-out;
+  animation-delay: 3s;
 }
 
 .button-active:active {
@@ -305,28 +294,12 @@ h4 {
   font-weight: 600;
 }
 
-/* .X:active,
-.favourites:active,
-.completed:active,
-.to-do:active {
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: green;
-} */
-
-/* .X:hover,
-.favourites:hover,
-.completed:hover,
-.to-do:hover {
-  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.58);
-} */
-
 .X {
   font-size: xx-large;
   color: crimson;
 }
 
 svg {
-  /* pointer-events: all; */
   cursor: pointer;
   background-color: none;
   fill: black;
@@ -349,7 +322,7 @@ svg {
   border: 1px black solid;
   min-height: fit-content;
   min-width: calc(70%);
-  gap: 1rem;
+  gap: 1vh;
   padding: 0.2em;
 }
 
@@ -473,7 +446,21 @@ svg {
   }
   100% {
     transform: translateX(0px);
-    color: black;
+    /* color: black; */
+  }
+}
+
+@keyframes bounceHike {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    width: 0.6;
+    transform: translateX(5px);
+    color: white;
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
 
@@ -487,18 +474,24 @@ svg {
   border-bottom: 0.2rem black solid;
   max-height: 97dvh;
   overflow-y: auto;
-  width: clamp(300px, 17%, 18%);
+  width: clamp(200px, 17%, 18%);
   display: flex;
   flex-direction: column;
   gap: 1rem;
   z-index: 1000;
   overflow-x: none;
+  box-shadow: -9px 14px 25px -4px rgba(0, 0, 0, 0.25);
 }
 
 .options-master {
   display: flex; /* need to change this to get rid of black blip */
   flex-direction: column;
-  background-color: white;
+  background: linear-gradient(
+    270deg,
+    rgba(194, 115, 103, 0.29) 0%,
+    rgba(140, 173, 156, 0.22) 81%,
+    rgba(125, 125, 115, 0.29) 100%
+  );
   gap: calc(2%);
   flex: 1;
   padding-top: 5vh;
@@ -521,7 +514,6 @@ svg {
   display: flex;
   flex-direction: column;
   align-content: flex-start;
-  /* align-self: center; */
   padding: 1rem;
   gap: 0.3rem;
   overflow-y: auto;
@@ -530,11 +522,10 @@ svg {
 .new-favourite,
 .new-completed,
 .new-todo {
-  color: goldenrod;
+  color: rgb(123, 95, 24);
   display: flex;
   justify-content: flex-start;
   text-wrap: wrap;
-  /* height: 0.6rem; */
   height: max-content;
   padding: 0.35em;
   font-size: 1.65vh;
@@ -554,7 +545,7 @@ svg {
 }
 
 .new-todo {
-  color: red;
+  color: rgba(249, 11, 11, 1);
 }
 
 .new-favourite:hover,
@@ -595,7 +586,6 @@ svg {
 
 .toponomy {
   padding-left: 1.5rem;
-  /* font-size: smaller; */
   font-style: italic;
 }
 
@@ -604,7 +594,6 @@ svg:hover:not(.location-button) {
 }
 
 .location-button:hover {
-  /* fill: blue; */
   animation: bounceLocation;
   animation-duration: 1.5s;
   animation-timing-function: ease-out;
@@ -650,12 +639,10 @@ svg:hover:not(.location-button) {
   pointer-events: none;
 }
 
-/* Show the notification */
 .show {
   bottom: 20px;
   opacity: 1;
   transform: translateY(0);
-  /* transition: transform 0.4s ease; */
 }
 
 .hide {
@@ -664,13 +651,8 @@ svg:hover:not(.location-button) {
   pointer-events: none;
 }
 
-/* .display-flex {
-  display: flex;
-} */
-
 .remove {
   height: 1rem;
-  /* border-radius: 50%; */
   width: 1rem;
   font-size: 0.5rem;
   color: red;

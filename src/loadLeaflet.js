@@ -22,13 +22,11 @@ export default function loadLeaflet(lat, long) {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
-  var marker = L.marker([lat, long]).addTo(map).bindPopup("Starting point");
+  L.marker([lat, long]).addTo(map).bindPopup("Starting point");
 
   // location
   const findMeButton = document.querySelector(".location-button");
   findMeButton.addEventListener("click", () => {
-    console.log("Find me button clicked");
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {

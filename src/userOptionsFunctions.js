@@ -1,4 +1,4 @@
-import openHikeDiv from "./openHikeDiv";
+import getHikeInfo from "./getHikeInfo";
 
 const favouritesMaster = document.querySelector(".favourites-master");
 const completedMaster = document.querySelector(".completed-master");
@@ -12,35 +12,30 @@ const toDoArray = [];
 export function closeModal() {
   const spanElement = document.querySelector(".X");
   spanElement.addEventListener("click", function () {
-    console.log("Close fake modal");
     const hikeCardDiv = document.querySelector(".hike-card-div");
     hikeCardDiv.style.display = "none";
     document.querySelector(".hike-card-container").style.backgroundColor =
       "gray";
-    document.getElementById("map").style.display = "none"; // doesn't work anymore? check fixed
+    document.getElementById("map").style.display = "none";
   });
 }
 // function completed
 
 function notification(task) {
-  // notificationDiv.style.display = "block";
   notificationDiv.textContent = `Added to ${task}!`;
   notificationDiv.classList.remove("hide");
   notificationDiv.classList.add("show");
   setTimeout(() => {
-    // notificationDiv.style.display = "none";
     notificationDiv.classList.remove("show");
     notificationDiv.classList.add("hide");
   }, 2200);
 }
 
 function warn(task) {
-  // notificationDiv.style.display = "block";
   notificationDiv.textContent = `This is already in your ${task}!`;
   notificationDiv.classList.remove("hide");
   notificationDiv.classList.add("show");
   setTimeout(() => {
-    // notificationDiv.style.display = "none";
     notificationDiv.classList.remove("show");
     notificationDiv.classList.add("hide");
   }, 2200);
@@ -85,6 +80,8 @@ export function markAsComplete(completed) {
       X
     </button>${title}`;
       newCompletedDiv.classList.add("new-completed");
+      newCompletedDiv.classList.add("click-hike");
+
       newCompletedDiv.style.borderColor = completed;
       completedMaster.appendChild(newCompletedDiv);
 
@@ -106,13 +103,15 @@ export function markAsToDo(toDo) {
 
     if (!toDoArray.includes(title)) {
       toDoArray.push(title);
-      const newCompletedDiv = document.createElement("div");
-      newCompletedDiv.innerHTML = `<button title="Remove from category" class="remove">
+      const newTodoDiv = document.createElement("div");
+      newTodoDiv.innerHTML = `<button title="Remove from category" class="remove">
         X
       </button>${title}`;
-      newCompletedDiv.classList.add("new-todo");
-      newCompletedDiv.style.borderColor = toDo;
-      toDoMaster.appendChild(newCompletedDiv);
+      newTodoDiv.classList.add("new-todo");
+      newTodoDiv.classList.add("click-hike");
+
+      newTodoDiv.style.borderColor = toDo;
+      toDoMaster.appendChild(newTodoDiv);
 
       const nameFunction = "To Do";
       notification(nameFunction);
@@ -131,33 +130,41 @@ function removeFromCategory(arrayName, className) {
 
   toArray.forEach((button) => {
     button.addEventListener("click", (e) => {
-      console.log("Remove button clicked.");
       const Target = e.target.nextSibling.textContent;
-      console.log(Target);
 
-      // favouritesArray.splice(Target, 1);
       const index = arrayName.indexOf(Target);
       if (index !== -1) {
         arrayName.splice(index, 1);
-        console.log(e.target.closest(`.new-${className}`));
+        // console.log(e.target.closest(`.new-${className}`));
         e.target.closest(`.new-${className}`).remove();
         console.log(arrayName);
       }
     });
   });
-  openInfoFromOptions();
+  openInfoFromOptions(); // FIXME: This resets the div to the one that is deleted
 }
 
 export function openInfoFromOptions() {
-  // will try the same route in
-  const allRemoveButtons = document.querySelectorAll(".click-hike");
-  const toArray = [...allRemoveButtons];
+  const allHikesInOptionsMenu = document.querySelectorAll(".click-hike");
 
-  toArray.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const Target = e.target.innerText.replace("X", "").trim();
-      console.log("Target:", Target);
-      openHikeDiv();
-    });
+  allHikesInOptionsMenu.forEach((div) => {
+    div.removeEventListener("click", handleOpenOptionsClick);
+    div.addEventListener("click", handleOpenOptionsClick);
   });
+}
+
+let selectedHike = "";
+
+function handleOpenOptionsClick(e) {
+  const clicked = e.currentTarget || e.target.closest(".click-hike");
+  if (!clicked) return;
+
+  selectedHike = clicked.textContent.replace("X", "").trim();
+
+  if (!selectedHike) {
+    console.warn("No hike name found.");
+    return;
+  }
+
+  getHikeInfo(selectedHike);
 }

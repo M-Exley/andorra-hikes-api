@@ -1,9 +1,3 @@
-/* this function will be passed into sortMainList() to change the colour of the parishes 
-    the two options are:
-    - colour-coded in hike individually
-    - colour-coded in big blocks
-*/
-
 export default function changeParishBorderColour(area) {
   const allHikeDivs = document.querySelectorAll(".hike-cards");
   const toArray = [...allHikeDivs];

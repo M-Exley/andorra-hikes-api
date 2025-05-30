@@ -3,7 +3,7 @@ import getHikeInfo from "./getHikeInfo";
 import count from "./counter";
 
 // this function is very similar to filterByParish.... but not equal
-// this function filter on clicking one of the options!!!
+// this function filters on clicking one of the options
 
 export default function filterByDifficulty(arrayOfAll) {
   const difficultyOptions = document.querySelectorAll(".difficulty-codes div");
@@ -13,6 +13,7 @@ export default function filterByDifficulty(arrayOfAll) {
 
   toArray.forEach((difficulty) =>
     difficulty.addEventListener("click", (e) => {
+      document.querySelector(".container").scrollTop = 0;
       const target = e.target.id.toLowerCase();
       // console.log(target); // returns twice?
 

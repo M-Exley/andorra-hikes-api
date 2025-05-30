@@ -11,6 +11,7 @@ export default function filterByParish(arrayOfAll) {
 
   toArray.forEach((parish) => {
     parish.addEventListener("click", (e) => {
+      document.querySelector(".container").scrollTop = 0;
       parish.style.backgroundColor = "";
       const target = e.target.textContent;
       console.log(target);

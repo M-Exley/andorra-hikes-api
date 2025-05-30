@@ -177,11 +177,25 @@ After believing that I was close to finishing, and happy with the user options m
 
 ![conclusion-two](src/images/conclusion-two.png)
 
-Following the correction, I made a list of all of the minor details that needed to be finished in order for me to feel that the project is completed:
+Following the correction, I made a list of all of the minor issues that need to be finished in order for me to feel that the project is completed:
 
-- close options menu on hover-off - already started
-- make hike info card smaller with screen minimise
-- to make the options menu responsive first click - this is due to the click event being embedded
-- return the hike card on options menu click
+- close options menu on hover-off - already started - Not going to do
+- make hike info card smaller with screen minimise - DONE
+- to make the options menu responsive first click - this is due to the click event being embedded - Not going to do
+- return the hike card on options menu click - DONE with re-factor of getHikeInfo -> conditional logic
 - difficulty colour full list on filter by difficulty - DONE but logic could be better
-- the triple click event on the options menu
+- the triple click event on the options menu - DONE
+
+### Final Product
+
+The project will not be perfect at this level but I'm happy with different elements of functionality and the visual design of the app. The final version looks as follows:
+
+![conclusion-three](src/images/conclusion-three.png)
+
+There are several interactive features that add to the overall feeling of the app such as Keyframes animations and click events firing simple design features like adding a border to the div instead of all the way around the hike div, which causes it to push the DOM outwards in all directions.
+
+I decided not to start messing around with the menu on the right in a bid to make it disappear on hover-off events as I felt that the small details of the project were beginning to get into my head and distracting me from developing my skills on a more fundamental level.
+
+I'd like to have a go at this project using React: it seems like the perfect use case for React as all of the components are relying on each other yet here they are not exactly 'linked' - I've forced them to connect via a series of functions and I've often had to use array and string methods to re-locate the objects by name or difficulty etc.
+
+30th May 2025.

@@ -1,4 +1,4 @@
-/* this function will change the colour of the difficulty HTML*/
+/* this function will change the colour of the difficulty in the de-structured card */
 
 export default function changeDifficultyColour(difficulty) {
   switch (difficulty) {
